@@ -27,13 +27,17 @@ public class Character : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update() {
-        const float moveSpeed = 1.0f;
+        const float moveSpeed = 3.0f;
         Vector3 move = Vector3.zero;
         if (Input.GetKey("up")) move.y += moveSpeed;
         if (Input.GetKey("down")) move.y -= moveSpeed;
         if (Input.GetKey("left")) move.x -= moveSpeed;
         if (Input.GetKey("right")) move.x += moveSpeed;
         transform.Translate(move * Time.deltaTime);
+
+		if (Input.GetKey("e")) {
+			DoLocationAction();
+		}
 	}
     
     public void SetLocation(Location location) {
