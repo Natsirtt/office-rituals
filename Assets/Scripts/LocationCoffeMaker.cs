@@ -12,4 +12,12 @@ public class LocationCoffeMaker : Location {
 	void Update () {
 	
 	}
+
+	public override void LocationAction(Character actingCharacter)
+	{
+		//
+		
+	}
+
+
 }
