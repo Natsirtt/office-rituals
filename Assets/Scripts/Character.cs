@@ -40,12 +40,12 @@ public class Character : MonoBehaviour {
 
     public void AddCoffee(float value) {
         CoffeeMeter += value;
-        CoffeeMeter = Mathf.Clamp(0.0f, 100.0f);
+        CoffeeMeter = Mathf.Clamp(CoffeeMeter, 0.0f, 100.0f);
     }
 
     public void AddWork(float value) {
         WorkMeter += value;
-        WorkMeter = Mathf.Clamp(0.0f, 100.0f);
+        WorkMeter = Mathf.Clamp(WorkMeter, 0.0f, 100.0f);
 
         if (WorkMeter >= 100.0f) {
             // Win?
