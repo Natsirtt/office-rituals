@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Location : MonoBehaviour {
+public abstract class Location : MonoBehaviour {
 
 
 
@@ -13,23 +13,24 @@ public class Location : MonoBehaviour {
 	void OnCollisionEnter(Collision coll) 
 	{
 		Character character;
-		character = (Character)coll.gameObject;
+		character = coll.gameObject.GetComponent<Character>();
 
-		character.SetLocation (this);
+		if (character != null) {
+			character.SetLocation (this);
+		}
 	} 
 
 	void OnCollisionExit(Collision coll) 
 	{
 		Character character;
-		character = (Character)coll.gameObject;
+		character = coll.gameObject.GetComponent<Character>();
 		
-		character.SetLocation (null);
+		if (character != null) {
+			character.SetLocation (null);
+		}
 	} 
 
-	public abstract void LocationAction(Character actingCharacter)
-	{
-
-	}
+	public abstract void LocationAction (Character actingCharacter);
 
 	// Update is called once per frame
 	void Update () {
