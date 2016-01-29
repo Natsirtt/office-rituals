@@ -4,21 +4,21 @@ using System.Collections;
 public class LocationCoffeMaker : Location {
 
 	private float coffeeAvailable;
-	private Time coffeStartTime;
+	private float coffeStartTime;
 	private float coffeTime = 5;
 
 	// Use this for initialization
 	void Start () {
-		coffeeAvailable = 0;
-		coffeStartTime = 0;
+		coffeeAvailable = 0f;
+		coffeStartTime = 0f;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (coffeStartTime != 0 && (Time.time > coffeStartTime + coffeTime)) 
 		{
-			coffeeAvailable = 100;
-			coffeStartTime = 0;
+			coffeeAvailable = 100f;
+			coffeStartTime = 0f;
 		}
 	}
 
@@ -26,7 +26,7 @@ public class LocationCoffeMaker : Location {
 	{
 		if (coffeeAvailable <= 0f) 
 		{
-			if (coffeStartTime == 0)
+			if (coffeStartTime == 0f)
 			{
 				//Making coffee
 				Debug.Log("Starting coffe Maker");
