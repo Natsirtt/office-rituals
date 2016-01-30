@@ -24,8 +24,9 @@ public class Character : MonoBehaviour {
 	void Start() {
 		gameObject.AddComponent<CoffeeMeter> ();
 
-		WorkMeterManager.GetInstance ().OnChange += OnWorkUpdated;
+		WorkMeterManager.GetInstance ().OnChange += UpdateGUI;
 		ForceUpdateGUI ();
+
 		if (coffeCup != null) {
 			coffeCup.SetActive (false);
 		}
@@ -45,16 +46,33 @@ public class Character : MonoBehaviour {
 	}
 
 #region GUI
-	void OnWorkUpdated() {
+	void UpdateGUI() {
+
+		// Unompimized code, but MEY!
+		var guiComp = GUI.GetComponent<GUI> ();
+
+		// Set UserText
+		guiComp.SetName(this.name);
+
+		// Set Work 
 		var inst = WorkMeterManager.GetInstance();
-		GUI.GetComponent<GUI> ().SetWork(inst.GetWork(this));
-	}
-	void UpdateCoffeeGUI() {
+		guiComp.SetWork(inst.GetWork(this));
+
+		// Set Anger
+		guiComp.SetAnger(100.0f);
+
+		// Set Coffee
 		var coffeeComponent = GetComponent<CoffeeMeter> ();
-		GUI.GetComponent<GUI> ().SetCoffee (coffeeComponent.Value);
+		guiComp.SetCoffee (coffeeComponent.Value);
+	
+		// Set Smoke
+		guiComp.SetSmoke(75.0f);
+
+		// Set OCD
+		guiComp.SetOCD(0.0f);
 	}
 	public void ForceUpdateGUI() {
-		OnWorkUpdated ();
+		UpdateGUI ();
 	}
 #endregion
 
@@ -72,7 +90,6 @@ public class Character : MonoBehaviour {
 		if (canMove) 
 		{
 			moveVector += new Vector3 (v.x, 0, v.y) * moveSpeed;
-
 		}
     }
 	
