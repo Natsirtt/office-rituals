@@ -75,6 +75,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 476052}
+  - 114: {fileID: 11477262}
   m_Layer: 0
   m_Name: CharacterGroup
   m_TagString: Untagged
@@ -142,7 +143,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 131834}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.7453628, y: 0.5, z: -3.2905617}
+  m_LocalPosition: {x: 0.8880552, y: 1.79, z: 26.759075}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 466242}
@@ -428,6 +429,18 @@ MonoBehaviour:
   coffeeEarnedFromCup: 75
   coffeCup: {fileID: 178390}
   characterModel: {fileID: 476052}
+--- !u!114 &11477262
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 112976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b93029c30e3a94aa380d4d5b5a3e642f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxRotation: 10
 --- !u!136 &13672738
 CapsuleCollider:
   m_ObjectHideFlags: 1
