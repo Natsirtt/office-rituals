@@ -9,11 +9,14 @@ public class LocationCoffeMaker : Location {
 	public TextMesh textMesh;
 	public GameObject coffePot;
 
+	private AudioSource audioSource;
+
 	// Use this for initialization
 	void Start () {
 		coffeeAvailable = 0f;
 		coffeStartTime = 0f;
 		coffePot.SetActive (false);
+		audioSource = GetComponentInChildren<AudioSource> ();
 	}
 	
 	// Update is called once per frame
@@ -31,6 +34,7 @@ public class LocationCoffeMaker : Location {
 				coffeStartTime = 0f;
 				coffePot.SetActive (true);
 				textMesh.text = "";
+				audioSource.Stop();
 			}
 		}
 	}
@@ -47,6 +51,7 @@ public class LocationCoffeMaker : Location {
 
 				textMesh.text = "Coffee...\n"+coffeTime;
 				coffeStartTime = Time.time;
+				audioSource.Play();
 			}
 		} 
 		else 
