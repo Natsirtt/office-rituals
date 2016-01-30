@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections;
 
+[RequireComponent(typeof(Character))]
 public abstract class Meter : MonoBehaviour {
 
 	// Not sure if we want this to change, shouldn't be to hard now.
