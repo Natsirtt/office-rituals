@@ -3,6 +3,9 @@
 public class SceneStarter : MonoBehaviour {
 	public int characterOffsetX = 2;
 	public int characterOffsetZ = 4;
+
+	public GameObject[] playerStartingPositions;
+
 	// Use this for initialization
 	void Start () {
 		var prefab = Resources.Load<GameObject> ("GUI");
