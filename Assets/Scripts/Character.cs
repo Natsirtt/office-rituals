@@ -27,12 +27,14 @@ public class Character : MonoBehaviour {
 	// Use this for initialization
 	void Start() {
 		gameObject.AddComponent<CoffeeMeter> ();
+		gameObject.AddComponent<SmokeMeter> ();
 
         UpdateGUI();
 
 		if (coffeCup != null) {
 			coffeCup.SetActive (false);
 		}
+
 		canMove = true;
 		hasCoffeCup = false;
 	}
@@ -79,7 +81,8 @@ public class Character : MonoBehaviour {
 		guiComp.SetCoffee (coffeeComponent.Value);
 	
 		// Set Smoke
-		guiComp.SetSmoke(75.0f);
+		var smokeComponent = GetComponent<SmokeMeter> ();
+		guiComp.SetSmoke(smokeComponent.Value);
 
 		// Set OCD
 		guiComp.SetOCD(0.0f);
@@ -157,6 +160,16 @@ public class Character : MonoBehaviour {
 			hasCoffeCup = true;
 
 			coffeCup.SetActive(true);
+		}
+	}
+
+	public void Smoke(float value)
+	{
+		var smokeComponent = GetComponent<SmokeMeter> ();
+		if (smokeComponent != null) {
+			smokeComponent.Add (value);
+
+			GUI.GetComponent<GUIContainer> ().SetSmoke(smokeComponent.Value);
 		}
 	}
 

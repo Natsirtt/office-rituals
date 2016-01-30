@@ -26,6 +26,7 @@ public class LocationWorkDesk : Location
 	
 	public override void LocationAction(Character actingCharacter)
 	{
+		Debug.Log ("Add Work! ");
 	    if (OwnerCharacterId == -1)
 	    {
 	        return;
@@ -38,7 +39,7 @@ public class LocationWorkDesk : Location
 		//}
 
 		if (OwnerCharacter == actingCharacter) {
-			//Debug.Log ("Add Work! ");
+			Debug.Log ("working at my desk! ");
 			WorkMeterManager.GetInstance ().AddWork (OwnerCharacter, workUpdate);
 		} else {
 			//WorkMeterManager.GetInstance ().CanStealWork (actingCharacter, OwnerCharacter);
