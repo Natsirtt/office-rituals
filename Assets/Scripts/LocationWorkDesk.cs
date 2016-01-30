@@ -14,7 +14,14 @@ public class LocationWorkDesk : Location
 	    {
 	        return;
 	    }
-	    OwnerCharacter = CharactersManager.Instance.characters[OwnerCharacterId];
+	    if (CharactersManager.Instance.characters.Count <= OwnerCharacterId)
+	    {
+	        OwnerCharacterId = -1;
+	    }
+	    else
+	    {
+	        OwnerCharacter = CharactersManager.Instance.characters[OwnerCharacterId];
+	    }
 	}
 	
 	public override void LocationAction(Character actingCharacter)

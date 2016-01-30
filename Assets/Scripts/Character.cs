@@ -118,6 +118,14 @@ public class Character : MonoBehaviour {
 	}
     
     public void SetLocation(Location location) {
+        if (location == null)
+        {
+            Debug.Log("Exited location");
+        }
+        else
+        {
+            Debug.Log("Entered " + location.name);
+        }
         previousLocation = location;
     }
 

@@ -16,13 +16,6 @@ public class CharactersBindingManager : MonoBehaviour
     }
 
 	void Update () {
-
-		if (bindedIds.Count >= 4) {
-			Debug.Log ("Max Players?");
-			// Start? Or on next press, so they can still try the controlls
-			return;
-		} 
-
 		text.enabled = bindedIds.Count > 0;
 
         // id 0 is keyboard ;)

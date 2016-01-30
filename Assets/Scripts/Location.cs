@@ -1,15 +1,7 @@
 ﻿using UnityEngine;
-using System.Collections;
 
+[RequireComponent(typeof(Collider))]
 public abstract class Location : MonoBehaviour {
-
-
-
-	// Use this for initialization
-	void Start () {
-	
-	}
-
 	void OnTriggerEnter(Collider coll) 
 	{
 		//Debug.Log ("OnTriggerEnter");
@@ -33,10 +25,4 @@ public abstract class Location : MonoBehaviour {
 	} 
 
 	public abstract void LocationAction (Character actingCharacter);
-
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
 }
