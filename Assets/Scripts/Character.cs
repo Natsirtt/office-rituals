@@ -15,14 +15,19 @@ public class Character : MonoBehaviour {
 	private float lastCoffeDrink;
 	public float coffeeDrinkTime = 5;
 
+	public GameObject coffeCup;
+
 	// Use this for initialization
 	void Start() {
 		gameObject.AddComponent<CoffeeMeter> ();
 
 		WorkMeterManager.GetInstance ().OnChange += OnWorkUpdated;
 		ForceUpdateGUI ();
-
+		if (coffeCup != null) {
+			coffeCup.SetActive (false);
+		}
 		canMove = true;
+
 	}
 	public bool DrinkingCoffe()
 	{
