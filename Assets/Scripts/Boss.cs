@@ -10,15 +10,15 @@ public class Boss : MonoBehaviour {
 
 	private int activeRoute;
 	private int currentWayPointTarget;
-	private float wayPointSwitchDistance = 0.2f;
+	private float wayPointSwitchDistance = 0.3f;
 
 	void Start () {
 		navAgent = GetComponent<NavMeshAgent> ();
 		activeRoute = -1;
-		//TriggerFirstRoute ();
+		TriggerFirstRoute ();
 	}
 
-	/*
+
 	void StartBossRound()
 	{
 		TriggerFirstRoute ();
@@ -54,8 +54,10 @@ public class Boss : MonoBehaviour {
 	void Update () {
 		if (activeRoute == 1) 
 		{
+			Debug.Log ("dist="+navAgent.remainingDistance);
 			if (navAgent.remainingDistance < wayPointSwitchDistance && wayPointsRoute1.Length>1) 
 			{
+				Debug.Log ("reached waypoint number "+currentWayPointTarget);
 				currentWayPointTarget ++;
 				if (currentWayPointTarget >= wayPointsRoute1.Length) {
 					currentWayPointTarget = 0;
@@ -86,5 +88,5 @@ public class Boss : MonoBehaviour {
 		}
 	}
 
-*/
+
 }
