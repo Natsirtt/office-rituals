@@ -19,6 +19,8 @@ public class Character : MonoBehaviour {
 
 	private bool hasCoffeCup;
 
+	public Transform characterModel;
+
 	// Use this for initialization
 	void Start() {
 		gameObject.AddComponent<CoffeeMeter> ();
@@ -71,12 +73,20 @@ public class Character : MonoBehaviour {
 		if (canMove) 
 		{
 			moveVector += new Vector3 (v.x, 0, v.y) * moveSpeed;
+
 		}
     }
 	
 	// Update is called once per frame
 	void Update() {
         transform.Translate(moveVector * Time.deltaTime);
+
+		if (characterModel != null && moveVector != Vector3.zero) {
+			Vector3 rotateVector = moveVector;
+			rotateVector.y = 1;
+			characterModel.transform.LookAt (rotateVector);
+		}
+
         moveVector = Vector3.zero;
 	}
     
