@@ -32,6 +32,10 @@ public class GUI : MonoBehaviour {
 		WorkDoneText.text = string.Format("Work: {0:0.00}%", value);
 	}
 
+	public void SetAnger(float value) {
+		AngerSlider.value = value / 100.0f;
+	}
+
 	public void SetCoffee(float value) {
 		//WorkDoneText.text = string.Format("Work: {0:0.00}%", inst.GetWork(this));
 		CoffeeSlider.value = value / 100.0f;

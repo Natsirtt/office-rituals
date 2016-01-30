@@ -784,12 +784,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 146de6981add4c048a9c869945d3eb30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UserText: {fileID: 0}
+  UserText: {fileID: 11457046}
   WorkDoneText: {fileID: 11446202}
-  AngerSlider: {fileID: 0}
+  AngerSlider: {fileID: 11423468}
   CoffeeSlider: {fileID: 11480886}
-  NicotineSlider: {fileID: 0}
-  OCDSlider: {fileID: 0}
+  NicotineSlider: {fileID: 11436638}
+  OCDSlider: {fileID: 11497080}
 --- !u!114 &11457046
 MonoBehaviour:
   m_ObjectHideFlags: 1
