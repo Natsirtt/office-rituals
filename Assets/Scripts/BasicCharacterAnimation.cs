@@ -47,7 +47,7 @@ public class BasicCharacterAnimation : MonoBehaviour {
 		}
 		change *= 5 * Time.deltaTime;
 
-		this.weight_ = Mathf.Min(1, Mathf.Max(0, this.weight_ + change));
+		this.weight_ = Mathf.Min(1, Mathf.Max(0.2f, this.weight_ + change));
 
 		var weight = this.weight_;
 
