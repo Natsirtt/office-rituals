@@ -3,19 +3,25 @@ using System.Collections;
 
 public class LocationCoffeMaker : Location {
 
-	private float coffeeAvailable;
+	private int coffeeAvailable;
 	private float coffeStartTime;
 	private float coffeTime = 7;
 	public TextMesh textMesh;
-	public GameObject coffePot;
+	private GameObject[] coffePot;
+
 
 	private AudioSource audioSource;
 
 	// Use this for initialization
 	void Start () {
-		coffeeAvailable = 0f;
+		coffeeAvailable = 0;
 		coffeStartTime = 0f;
-		coffePot.SetActive (false);
+		coffePot = GameObject.FindGameObjectsWithTag("CoffeePots");
+		foreach (GameObject go in coffePot) 
+		{
+			go.SetActive (false);
+		}
+
 		audioSource = GetComponentInChildren<AudioSource> ();
 	}
 	
@@ -30,9 +36,12 @@ public class LocationCoffeMaker : Location {
 
 			if (remainingCoffeeTime <= 0) 
 			{
-				coffeeAvailable = 100f;
 				coffeStartTime = 0f;
-				coffePot.SetActive (true);
+				foreach (GameObject go in coffePot) 
+				{
+					go.SetActive (true);
+				}
+				coffeeAvailable = coffePot.Length;
 				textMesh.text = "";
 				audioSource.Stop();
 			}
@@ -42,7 +51,7 @@ public class LocationCoffeMaker : Location {
 	public override void LocationAction(Character actingCharacter)
 	{
 		Debug.Log("cofee location");
-		if (coffeeAvailable <= 0f) 
+		if (coffeeAvailable <= 0) 
 		{
 			if (coffeStartTime == 0f)
 			{
@@ -58,7 +67,8 @@ public class LocationCoffeMaker : Location {
 		{
 			Debug.Log("Drinking cofee");
 			actingCharacter.AddCoffee (20f);
-			coffeeAvailable -= 20f;
+			coffeeAvailable -= 1;
+			coffePot[coffeeAvailable].SetActive(false);
 		}
 
 
