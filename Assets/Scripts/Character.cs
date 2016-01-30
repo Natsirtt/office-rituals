@@ -19,25 +19,30 @@ public class Character : MonoBehaviour {
     private float CoffeeMeter;
     private Location previousLocation;
 
+    [SerializeField]
+    private float moveSpeed = 1.0f;
+    private Vector3 moveVector = Vector3.zero;
+
 	// Use this for initialization
 	void Start() {
         this.WorkMeter = 0.0f;
         this.CoffeeMeter = 50.0f;
 	}
+
+    public bool CanMove()
+    {
+        return true; // TODO
+    }
+
+    public void Move(Vector2 v)
+    {
+        moveVector += new Vector3(v.x, v.y, 0) * moveSpeed;
+    }
 	
 	// Update is called once per frame
 	void Update() {
-        const float moveSpeed = 3.0f;
-        Vector3 move = Vector3.zero;
-        if (Input.GetKey("up")) move.y += moveSpeed;
-        if (Input.GetKey("down")) move.y -= moveSpeed;
-        if (Input.GetKey("left")) move.x -= moveSpeed;
-        if (Input.GetKey("right")) move.x += moveSpeed;
-        transform.Translate(move * Time.deltaTime);
-
-		if (Input.GetKey("e")) {
-			DoLocationAction();
-		}
+        transform.Translate(moveVector * Time.deltaTime);
+        moveVector = Vector3.zero;
 	}
     
     public void SetLocation(Location location) {
