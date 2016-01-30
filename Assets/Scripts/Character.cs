@@ -2,6 +2,8 @@
 
 public class Character : MonoBehaviour {
 
+	public Color CharColor;
+
 	public GameObject GUI;
     public float GuiYOffset = 130f;
     [HideInInspector]
@@ -32,6 +34,8 @@ public class Character : MonoBehaviour {
 		gameObject.AddComponent<CoffeeMeter> ();
 		gameObject.AddComponent<SmokeMeter> ();
 
+		CharColor = Color.red;
+
 		moveAnimator = this.GetComponentInChildren<BasicCharacterAnimation>();
 
         UpdateGUI();
@@ -59,6 +63,15 @@ public class Character : MonoBehaviour {
 	}
 
 #region GUI
+	static Color GetColor(int index) {
+		switch (index) {
+		case 0: return Color.red;
+		case 1: return Color.green;
+		case 2: return Color.blue;
+		case 3: return Color.yellow;
+		default: return Color.white;
+		}
+	}
 	private bool guiInit = false;
 	private void UpdateGUI() {
 
@@ -73,6 +86,9 @@ public class Character : MonoBehaviour {
 			guiComp.GuiTransform.localPosition = new Vector3(10, -15 - id * GuiYOffset, 0);
 			guiInit = true;
 		}
+
+		this.CharColor = GetColor (id); // :)
+		guiComp.SetBackground(this.CharColor);
 
 		// Set UserText
 		guiComp.SetName("Player " + (id + 1));

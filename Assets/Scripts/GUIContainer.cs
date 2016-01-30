@@ -1,9 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-// TODO: Rename
 public class GUIContainer : MonoBehaviour {
-
+	
 	// User
 	public Text UserText;
 
@@ -25,6 +24,10 @@ public class GUIContainer : MonoBehaviour {
     // Maybe I will just cheat with this
     public RectTransform GuiTransform;
 
+	public void SetBackground(Color color) {
+		var image = GuiTransform.GetComponent<Image>();
+		image.color = color;
+	}
 
 	public void SetName(string name) {
 		this.UserText.text = name;
