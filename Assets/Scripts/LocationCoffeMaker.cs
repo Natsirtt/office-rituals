@@ -41,13 +41,13 @@ public class LocationCoffeMaker : Location {
 
 	public override void LocationAction(Character actingCharacter)
 	{
-		Debug.Log("cofee location");
+		//Debug.Log("cofee location");
 		if (coffeeAvailable <= 0f) 
 		{
 			if (coffeStartTime == 0f)
 			{
-				//Making coffee
-				Debug.Log("Starting coffe Maker\n"+coffeTime);
+				// Making coffee
+				//Debug.Log("Starting coffe Maker\n"+coffeTime);
 
 				textMesh.text = "Coffee...\n"+coffeTime;
 				coffeStartTime = Time.time;
@@ -56,14 +56,9 @@ public class LocationCoffeMaker : Location {
 		} 
 		else 
 		{
-			Debug.Log("Drinking cofee");
+			//Debug.Log("Drinking cofee");
 			actingCharacter.AddCoffee (20f);
 			coffeeAvailable -= 20f;
 		}
-
-
-
 	}
-
-
 }

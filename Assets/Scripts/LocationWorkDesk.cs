@@ -20,20 +20,18 @@ public class LocationWorkDesk : Location {
 		//Do work
 		float workUpdate = 0.1f;
 
-		if (actingCharacter != OwnerCharacter) 
-		{
+		//if (actingCharacter != OwnerCharacter) {
+		//	workUpdate = - workUpdate;
+		//}
 
-			workUpdate = - workUpdate;
-		}
-
-		Debug.Log ("Working, effort = "+workUpdate);
 		if (OwnerCharacter == actingCharacter) {
-			Debug.Log ("Add Work! ");
+			//Debug.Log ("Add Work! ");
 			WorkMeterManager.GetInstance ().AddWork (OwnerCharacter, workUpdate);
 		} else {
-			Debug.Log ("Steal Work!");
 			//WorkMeterManager.GetInstance ().CanStealWork (actingCharacter, OwnerCharacter);
-			WorkMeterManager.GetInstance ().StealWork (actingCharacter, OwnerCharacter, workUpdate);
+			float workStolen = WorkMeterManager.GetInstance ().StealWork (actingCharacter, OwnerCharacter, workUpdate);
+			Debug.Log (string.Format("{0} stole {1} work from {2}", 
+				actingCharacter.name, workStolen, OwnerCharacter.name));
 		}
 	}
 }

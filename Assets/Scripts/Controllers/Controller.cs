@@ -14,7 +14,7 @@ public abstract class Controller : MonoBehaviour
 	void Update () {
 	    if (IsActionPressed())
 	    {
-            Debug.Log("Action pressed by " + this.name);
+            //Debug.Log("Action pressed by " + this.name);
 	        character.DoLocationAction();
 	    }
 	    if (character.CanMove())
