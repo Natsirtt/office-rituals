@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class GUI : MonoBehaviour {
+// TODO: Rename
+public class GUIContainer : MonoBehaviour {
 
 	// User
 	public Text UserText;
