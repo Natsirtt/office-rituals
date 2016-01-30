@@ -28,5 +28,12 @@ public class LocationWorkDesk : Location {
 
 		Debug.Log ("Working, effort = "+workUpdate);
 		OwnerCharacter.AddWork (workUpdate);
+
+		if (OwnerCharacter == actingCharacter) {
+			WorkMeterManager.GetInstance ().AddWork (OwnerCharacter, workUpdate);
+		} else {
+			//WorkMeterManager.GetInstance ().CanStealWork (actingCharacter, OwnerCharacter);
+			WorkMeterManager.GetInstance ().StealWork (actingCharacter, OwnerCharacter, workUpdate);
+		}
 	}
 }
