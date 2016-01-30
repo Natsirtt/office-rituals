@@ -1,42 +1,37 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public abstract class Meter {
-    public float Value;
-
-    void Start() {
-        Value = 0.0f;
-    }
-
-    public abstract void CalcWork(ref float value);
-}
-
-
-
 public class Character : MonoBehaviour {
 
-    private float WorkMeter;
-    private float CoffeeMeter;
     private Location previousLocation;
 
     [SerializeField]
     private float moveSpeed = 1.0f;
     private Vector3 moveVector = Vector3.zero;
 
+	private bool canMove;
+
 	// Use this for initialization
 	void Start() {
-        this.WorkMeter = 0.0f;
-        this.CoffeeMeter = 50.0f;
+		gameObject.AddComponent<CoffeeMeter> ();
+		canMove = true;
 	}
 
     public bool CanMove()
     {
-        return true; // TODO
+        return canMove; // TODO
     }
+	public void setCanMove(bool val)
+	{
+		canMove = val;
+	}
 
     public void Move(Vector2 v)
     {
-        moveVector += new Vector3(v.x, v.y, 0) * moveSpeed;
+		if (canMove) 
+		{
+			moveVector += new Vector3 (v.x, 0, v.y) * moveSpeed;
+		}
     }
 	
 	// Update is called once per frame
@@ -56,16 +51,10 @@ public class Character : MonoBehaviour {
     }
 
     public void AddCoffee(float value) {
-        CoffeeMeter += value;
-        CoffeeMeter = Mathf.Clamp(CoffeeMeter, 0.0f, 100.0f);
-    }
-
-    public void AddWork(float value) {
-        WorkMeter += value;
-        WorkMeter = Mathf.Clamp(WorkMeter, 0.0f, 100.0f);
-
-        if (WorkMeter >= 100.0f) {
-            // Win?
-        }
+		var coffeeComponent = GetComponent<CoffeeMeter> ();
+		if (coffeeComponent != null) {
+			coffeeComponent.Add (value);
+			Debug.Log ("Current Coffee: " + coffeeComponent.Value);
+		}
     }
 }

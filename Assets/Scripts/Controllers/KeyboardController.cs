@@ -4,7 +4,7 @@ public class KeyboardController : Controller
 {
     protected override bool IsActionPressed()
     {
-        return Input.GetKeyDown(KeyCode.Space);
+        return Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.E);
     }
 
     protected override Vector2 ComputeMovement()
