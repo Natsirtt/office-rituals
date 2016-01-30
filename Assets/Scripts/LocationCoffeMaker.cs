@@ -12,6 +12,8 @@ public class LocationCoffeMaker : Location {
 	public AudioClip readySound;
 	public AudioClip drinkSound;
 
+	private Character lastActingCharacter;
+
 	private AudioSource audioSource;
 
 	// Use this for initialization
@@ -49,6 +51,7 @@ public class LocationCoffeMaker : Location {
 				audioSource.loop = false;
 				audioSource.clip = readySound;
 				audioSource.Play();
+				lastActingCharacter.setCanMove(true); 
 			}
 		}
 	}
@@ -68,6 +71,8 @@ public class LocationCoffeMaker : Location {
 				audioSource.loop = true;
 				audioSource.clip = dripSound;
 				audioSource.Play();
+				lastActingCharacter = actingCharacter;
+				actingCharacter.setCanMove(false);
 			}
 		} 
 		else 

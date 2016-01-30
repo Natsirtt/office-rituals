@@ -9,19 +9,29 @@ public class Character : MonoBehaviour {
     private float moveSpeed = 1.0f;
     private Vector3 moveVector = Vector3.zero;
 
+	private bool canMove;
+
 	// Use this for initialization
 	void Start() {
 		gameObject.AddComponent<CoffeeMeter> ();
+		canMove = true;
 	}
 
     public bool CanMove()
     {
-        return true; // TODO
+        return canMove; // TODO
     }
+	public void setCanMove(bool val)
+	{
+		canMove = val;
+	}
 
     public void Move(Vector2 v)
     {
-        moveVector += new Vector3(v.x, 0, v.y) * moveSpeed;
+		if (canMove) 
+		{
+			moveVector += new Vector3 (v.x, 0, v.y) * moveSpeed;
+		}
     }
 	
 	// Update is called once per frame
