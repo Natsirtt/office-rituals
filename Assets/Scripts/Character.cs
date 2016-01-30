@@ -17,6 +17,8 @@ public class Character : MonoBehaviour {
 
 	public GameObject coffeCup;
 
+	private bool hasCoffeCup;
+
 	// Use this for initialization
 	void Start() {
 		gameObject.AddComponent<CoffeeMeter> ();
@@ -27,10 +29,12 @@ public class Character : MonoBehaviour {
 			coffeCup.SetActive (false);
 		}
 		canMove = true;
-
+		hasCoffeCup = false;
 	}
+
 	public bool DrinkingCoffe()
 	{
+		hasCoffeCup = false;
 		bool drinking = false;
 		if (lastCoffeDrink != 0 && Time.time < lastCoffeDrink + coffeeDrinkTime) 
 		{
@@ -81,10 +85,30 @@ public class Character : MonoBehaviour {
     }
 
     public void DoLocationAction() {
-        if (previousLocation != null) {
+        
+		if (hasCoffeCup) 
+		{
+			AddCoffee(20f);
+			hasCoffeCup = false;
+			coffeCup.SetActive(false);
+		}
+
+		if (previousLocation != null) {
             previousLocation.LocationAction(this);
         }
+
     }
+
+	public void TakeCoffeeCup()
+	{
+		if (!hasCoffeCup && !DrinkingCoffe ()) 
+		{
+			hasCoffeCup = true;
+
+			coffeCup.SetActive(true);
+		}
+	}
+
 
     public void AddCoffee(float value) {
 		lastCoffeDrink = Time.time;
