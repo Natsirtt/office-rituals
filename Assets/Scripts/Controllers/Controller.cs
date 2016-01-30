@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 [RequireComponent(typeof(Character))]
 public abstract class Controller : MonoBehaviour
@@ -24,5 +25,6 @@ public abstract class Controller : MonoBehaviour
 	}
 
     protected abstract bool IsActionPressed();
+
     protected abstract Vector2 ComputeMovement();
 }
