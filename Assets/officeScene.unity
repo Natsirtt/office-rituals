@@ -249,7 +249,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 436512359}
   - 33: {fileID: 436512362}
-  - 65: {fileID: 436512361}
   - 23: {fileID: 436512360}
   m_Layer: 0
   m_Name: Cube (1)
@@ -294,18 +293,6 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!65 &436512361
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 436512358}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &436512362
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -322,7 +309,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 506004516}
   - 33: {fileID: 506004519}
-  - 65: {fileID: 506004518}
   - 23: {fileID: 506004517}
   m_Layer: 0
   m_Name: Cube
@@ -367,18 +353,6 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!65 &506004518
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 506004515}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &506004519
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -397,8 +371,9 @@ GameObject:
   - 33: {fileID: 266704314}
   - 23: {fileID: 636553182}
   - 64: {fileID: 636553183}
+  - 65: {fileID: 636553185}
   m_Layer: 0
-  m_Name: Plane
+  m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -436,9 +411,9 @@ MeshCollider:
   m_GameObject: {fileID: 636553181}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
-  m_Convex: 0
+  m_Convex: 1
   m_Mesh: {fileID: 0}
 --- !u!4 &636553184
 Transform:
@@ -452,6 +427,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
+--- !u!65 &636553185
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 636553181}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 2.22044605e-16, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &779060931
 GameObject:
   m_ObjectHideFlags: 0
@@ -462,8 +449,8 @@ GameObject:
   - 4: {fileID: 779060932}
   - 114: {fileID: 779060933}
   - 114: {fileID: 779060934}
-  - 135: {fileID: 779060936}
   - 54: {fileID: 779060935}
+  - 65: {fileID: 779060936}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Untagged
@@ -515,16 +502,16 @@ Rigidbody:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 779060931}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 10
   m_Drag: 0
   m_AngularDrag: .0500000007
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!135 &779060936
-SphereCollider:
+--- !u!65 &779060936
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -533,7 +520,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1
+  m_Size: {x: 1, y: 2, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &954009237
 GameObject:
