@@ -34,6 +34,11 @@ public class XBoxController : Controller
 
     protected override Vector2 ComputeMovement()
     {
-        return new Vector2(Input.GetAxis(HorizontalAxisDescriptor(joystickId)), Input.GetAxis(VerticalAxisDescriptor(joystickId)));
+        var v = new Vector2(Input.GetAxis(HorizontalAxisDescriptor(joystickId)), -Input.GetAxis(VerticalAxisDescriptor(joystickId)));
+        //if (Mathf.Abs(v.x) > 0.01f || Mathf.Abs(v.y) > 0.01f)
+        //{
+        //    Debug.Log("Joystick " + joystickId + " " + v);
+        //}
+        return v;
     }
 }

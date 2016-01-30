@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CharactersBindingManager : MonoBehaviour
 {
@@ -16,6 +17,20 @@ public class CharactersBindingManager : MonoBehaviour
 	    {
 	        if (bindedIds.Contains(i))
 	        {
+	            if (i == 0)
+	            {
+	                if (Input.GetKeyDown(KeyCode.Space))
+	                {
+	                    SceneManager.LoadScene("officeScene");
+	                }
+	            }
+	            else
+	            {
+	                if (Input.GetButtonDown(XBoxController.SecondaryActionPressedDescriptor(i)))
+	                {
+	                    SceneManager.LoadScene("officeScene");
+	                }
+	            }
 	            continue;
 	        }
 	        if (i == 0)
