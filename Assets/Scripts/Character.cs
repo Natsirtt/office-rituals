@@ -10,11 +10,22 @@ public class Character : MonoBehaviour {
     private Vector3 moveVector = Vector3.zero;
 
 	private bool canMove;
+	private float lastCoffeDrink;
+	public float coffeeDrinkTime = 5;
 
 	// Use this for initialization
 	void Start() {
 		gameObject.AddComponent<CoffeeMeter> ();
 		canMove = true;
+	}
+	public bool DrinkingCoffe()
+	{
+		bool drinking = false;
+		if (lastCoffeDrink != 0 && Time.time < lastCoffeDrink + coffeeDrinkTime) 
+		{
+			drinking = true;
+		}
+		return drinking;
 	}
 
     public bool CanMove()
@@ -51,6 +62,8 @@ public class Character : MonoBehaviour {
     }
 
     public void AddCoffee(float value) {
+		lastCoffeDrink = Time.time;
+
 		var coffeeComponent = GetComponent<CoffeeMeter> ();
 		if (coffeeComponent != null) {
 			coffeeComponent.Add (value);
