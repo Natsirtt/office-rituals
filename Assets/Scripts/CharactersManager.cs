@@ -34,8 +34,10 @@ public class CharactersManager : MonoBehaviour
         var newChar = Instantiate(characterPrefab);
         newChar.transform.parent = transform;
         newChar.SetActive(false);
-        characters.Add(newChar.GetComponent<Character>());
-		characters [characters.Count - 1].id = nextCharacterId;
+        var charScript = newChar.GetComponent<Character>();
+        characters.Add(charScript);
+		charScript.id = nextCharacterId;
+        charScript.GetComponentInChildren<CharacterMaterial>().TextureIndex = charScript.id;
         nextCharacterId++;
         return newChar;
     }

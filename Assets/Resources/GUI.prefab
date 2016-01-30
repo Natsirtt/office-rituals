@@ -790,6 +790,7 @@ MonoBehaviour:
   CoffeeSlider: {fileID: 11480886}
   NicotineSlider: {fileID: 11436638}
   OCDSlider: {fileID: 11497080}
+  GuiTransform: {fileID: 22466982}
 --- !u!114 &11457046
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1484,7 +1485,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 10, y: -5}
+  m_AnchoredPosition: {x: 10, y: -31.78}
   m_SizeDelta: {x: 200, y: 115}
   m_Pivot: {x: 0, y: 1}
 --- !u!224 &22469354
