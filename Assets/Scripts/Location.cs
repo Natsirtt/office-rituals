@@ -12,7 +12,7 @@ public abstract class Location : MonoBehaviour {
 
 	void OnTriggerEnter(Collider coll) 
 	{
-		Debug.Log ("OnTriggerEnter");
+		//Debug.Log ("OnTriggerEnter");
 		Character character;
 		character = coll.gameObject.GetComponent<Character>();
 		
@@ -23,7 +23,7 @@ public abstract class Location : MonoBehaviour {
 
 	void OnTriggerExit(Collider coll) 
 	{
-		Debug.Log ("OnTriggerExit");
+		//Debug.Log ("OnTriggerExit");
 		Character character;
 		character = coll.gameObject.GetComponent<Character>();
 		

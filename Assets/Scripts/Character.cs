@@ -3,7 +3,6 @@ using System.Collections;
 
 public class Character : MonoBehaviour {
 
-    private float CoffeeMeter;
     private Location previousLocation;
 
     [SerializeField]
@@ -12,7 +11,7 @@ public class Character : MonoBehaviour {
 
 	// Use this for initialization
 	void Start() {
-        this.CoffeeMeter = 50.0f;
+		gameObject.AddComponent<CoffeeMeter> ();
 	}
 
     public bool CanMove()
@@ -42,11 +41,10 @@ public class Character : MonoBehaviour {
     }
 
     public void AddCoffee(float value) {
-        CoffeeMeter += value;
-        CoffeeMeter = Mathf.Clamp(CoffeeMeter, 0.0f, 100.0f);
-    }
-
-    public void AddWork(float value) {
-		WorkMeterManager.GetInstance ().AddWork (this, value);
+		var coffeeComponent = GetComponent<CoffeeMeter> ();
+		if (coffeeComponent != null) {
+			coffeeComponent.Add (value);
+			Debug.Log ("Current Coffee: " + coffeeComponent.Value);
+		}
     }
 }
