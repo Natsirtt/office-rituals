@@ -85,6 +85,18 @@ NavMeshSettings:
     cellSize: 0.16666667
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &142367054 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11436638, guid: 97778980a64d70d4bb983b2abf06e916,
+    type: 2}
+  m_PrefabInternal: {fileID: 2106431167}
+  m_Script: {fileID: -113659843, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+--- !u!114 &276344475 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11423468, guid: 97778980a64d70d4bb983b2abf06e916,
+    type: 2}
+  m_PrefabInternal: {fileID: 2106431167}
+  m_Script: {fileID: -113659843, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1 &510816390
 GameObject:
   m_ObjectHideFlags: 0
@@ -171,6 +183,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &1049263693 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11497080, guid: 97778980a64d70d4bb983b2abf06e916,
+    type: 2}
+  m_PrefabInternal: {fileID: 2106431167}
+  m_Script: {fileID: -113659843, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+--- !u!114 &1123418013 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11457046, guid: 97778980a64d70d4bb983b2abf06e916,
+    type: 2}
+  m_PrefabInternal: {fileID: 2106431167}
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+--- !u!114 &1438351551 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11480886, guid: 97778980a64d70d4bb983b2abf06e916,
+    type: 2}
+  m_PrefabInternal: {fileID: 2106431167}
+  m_Script: {fileID: -113659843, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1001 &2106431167
 Prefab:
   m_ObjectHideFlags: 0
@@ -250,22 +280,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 11423468, guid: 97778980a64d70d4bb983b2abf06e916, type: 2}
-      propertyPath: m_HandleRect
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 11497080, guid: 97778980a64d70d4bb983b2abf06e916, type: 2}
-      propertyPath: m_HandleRect
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 11436638, guid: 97778980a64d70d4bb983b2abf06e916, type: 2}
-      propertyPath: m_HandleRect
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 11480886, guid: 97778980a64d70d4bb983b2abf06e916, type: 2}
-      propertyPath: m_HandleRect
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 22412672, guid: 97778980a64d70d4bb983b2abf06e916, type: 2}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -298,6 +312,26 @@ Prefab:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11455694, guid: 97778980a64d70d4bb983b2abf06e916, type: 2}
+      propertyPath: UserText
+      value: 
+      objectReference: {fileID: 1123418013}
+    - target: {fileID: 11455694, guid: 97778980a64d70d4bb983b2abf06e916, type: 2}
+      propertyPath: AngerSlider
+      value: 
+      objectReference: {fileID: 276344475}
+    - target: {fileID: 11455694, guid: 97778980a64d70d4bb983b2abf06e916, type: 2}
+      propertyPath: CoffeeSlider
+      value: 
+      objectReference: {fileID: 1438351551}
+    - target: {fileID: 11455694, guid: 97778980a64d70d4bb983b2abf06e916, type: 2}
+      propertyPath: NicotineSlider
+      value: 
+      objectReference: {fileID: 142367054}
+    - target: {fileID: 11455694, guid: 97778980a64d70d4bb983b2abf06e916, type: 2}
+      propertyPath: OCDSlider
+      value: 
+      objectReference: {fileID: 1049263693}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 97778980a64d70d4bb983b2abf06e916, type: 2}
   m_IsPrefabParent: 0
