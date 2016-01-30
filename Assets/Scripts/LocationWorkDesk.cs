@@ -3,6 +3,9 @@
 public class LocationWorkDesk : Location
 {
 
+	[SerializeField]
+	public float WorkValue = 0.1f;
+
     [SerializeField]
     private int OwnerCharacterId = -1;
 	private Character OwnerCharacter;
@@ -26,19 +29,22 @@ public class LocationWorkDesk : Location
 	
 	public override void LocationAction(Character actingCharacter)
 	{
+		Debug.Log ("Add Work! ");
 	    if (OwnerCharacterId == -1)
 	    {
 	        return;
 	    }
+
 		//Do work
+
 		float workUpdate = 0.1f;
 
-		//if (actingCharacter != OwnerCharacter) {
-		//	workUpdate = - workUpdate;
-		//}
+		Debug.Log ("Before: " + workUpdate);
+		actingCharacter.GetComponent<CoffeeMeter> ().CalcWork (ref workUpdate);
+		Debug.Log ("After: " + workUpdate);
 
 		if (OwnerCharacter == actingCharacter) {
-			//Debug.Log ("Add Work! ");
+			Debug.Log ("working at my desk! ");
 			WorkMeterManager.GetInstance ().AddWork (OwnerCharacter, workUpdate);
 		} else {
 			//WorkMeterManager.GetInstance ().CanStealWork (actingCharacter, OwnerCharacter);

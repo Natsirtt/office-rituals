@@ -2,6 +2,8 @@
 
 public class Character : MonoBehaviour {
 
+	public Color CharColor;
+
 	public GameObject GUI;
     public float GuiYOffset = 130f;
     [HideInInspector]
@@ -19,20 +21,32 @@ public class Character : MonoBehaviour {
     public float coffeeEarnedFromCup = 75f;
 
 	public GameObject coffeCup;
+	public GameObject cig;
 
 	private bool hasCoffeCup;
 
 	public Transform characterModel;
 
+	private BasicCharacterAnimation moveAnimator = null;
+
 	// Use this for initialization
 	void Start() {
 		gameObject.AddComponent<CoffeeMeter> ();
+		gameObject.AddComponent<SmokeMeter> ();
+
+		CharColor = Color.red;
+
+		moveAnimator = this.GetComponentInChildren<BasicCharacterAnimation>();
 
         UpdateGUI();
 
 		if (coffeCup != null) {
 			coffeCup.SetActive (false);
 		}
+		if (cig != null) {
+			cig.SetActive (false);
+		}
+
 		canMove = true;
 		hasCoffeCup = false;
 	}
@@ -49,6 +63,15 @@ public class Character : MonoBehaviour {
 	}
 
 #region GUI
+	static Color GetColor(int index) {
+		switch (index) {
+		case 0: return Color.red;
+		case 1: return Color.green;
+		case 2: return Color.blue;
+		case 3: return Color.yellow;
+		default: return Color.white;
+		}
+	}
 	private bool guiInit = false;
 	private void UpdateGUI() {
 
@@ -63,6 +86,9 @@ public class Character : MonoBehaviour {
 			guiComp.GuiTransform.localPosition = new Vector3(10, -15 - id * GuiYOffset, 0);
 			guiInit = true;
 		}
+
+		this.CharColor = GetColor (id); // :)
+		guiComp.SetBackground(this.CharColor);
 
 		// Set UserText
 		guiComp.SetName("Player " + (id + 1));
@@ -79,7 +105,8 @@ public class Character : MonoBehaviour {
 		guiComp.SetCoffee (coffeeComponent.Value);
 	
 		// Set Smoke
-		guiComp.SetSmoke(75.0f);
+		var smokeComponent = GetComponent<SmokeMeter> ();
+		guiComp.SetSmoke(smokeComponent.Value);
 
 		// Set OCD
 		guiComp.SetOCD(0.0f);
@@ -97,10 +124,16 @@ public class Character : MonoBehaviour {
 
     public void Move(Vector2 v)
     {
+		bool moved = false;
 		if (canMove) 
 		{
 			moveVector += new Vector3 (v.x, 0, v.y) * moveSpeed;
+			if( moveVector.sqrMagnitude > 0.1f ) {
+				moved = true;
+			}
 		}
+
+		moveAnimator.HasMoved = moved;
     }
 	
 	// Update is called once per frame
@@ -110,7 +143,8 @@ public class Character : MonoBehaviour {
 		if (characterModel != null && moveVector != Vector3.zero) {
 			Vector3 rotateVector = moveVector*1000;
 			rotateVector.y = 1;
-			characterModel.transform.LookAt (rotateVector);
+			// characterModel.transform.LookAt (rotateVector);
+			moveAnimator.Facing = rotateVector;
 		}
 
         moveVector = Vector3.zero;
@@ -158,6 +192,21 @@ public class Character : MonoBehaviour {
 
 			coffeCup.SetActive(true);
 		}
+	}
+
+	public void StartSmoke()
+	{
+		cig.SetActive (true);
+	}
+	public void EndSmoke(float value)
+	{
+		var smokeComponent = GetComponent<SmokeMeter> ();
+		if (smokeComponent != null) {
+			smokeComponent.Add (value);
+
+			GUI.GetComponent<GUIContainer> ().SetSmoke(smokeComponent.Value);
+		}
+		cig.SetActive (false);
 	}
 
     public void AddCoffee(float value) {
