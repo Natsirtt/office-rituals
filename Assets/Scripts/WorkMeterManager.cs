@@ -11,12 +11,12 @@ public class WorkMeterManager {
 	}
 
 
-	public Dictionary<Character, float> AllWork;
+	public Dictionary<Character, float> AllWork = new Dictionary<Character, float>();
 
-	void Start () {
-		AllWork = new Dictionary<Character, float>();
+	public float GetTotalWork() {
+		return AllWork.Sum (x => x.Value); 
 	}
-	
+
 	public void AddWork(Character character, float workValue) {
 		if (AllWork.ContainsKey (character)) {
 			AllWork [character] += workValue;
@@ -63,13 +63,14 @@ public class WorkMeterManager {
 	/// Checks if the work is at 100%.
 	/// </summary>
 	public bool CheckWork() {
-		if (AllWork.Sum (x => x.Value) >= 100.0f) {
+		if (GetTotalWork() >= 100.0f) {
 			var winner = AllWork.Aggregate((l, r) => l.Value < r.Value ? l : r);
 			Debug.Log ("Winner: " + winner.Key.name);
 		
 			return true;
 		}
 
+		Debug.Log ("Total Work: " + GetTotalWork());
 		return false;
 	}
 }

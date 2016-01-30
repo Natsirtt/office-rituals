@@ -27,11 +27,11 @@ public class LocationWorkDesk : Location {
 		}
 
 		Debug.Log ("Working, effort = "+workUpdate);
-		OwnerCharacter.AddWork (workUpdate);
-
 		if (OwnerCharacter == actingCharacter) {
+			Debug.Log ("Add Work! ");
 			WorkMeterManager.GetInstance ().AddWork (OwnerCharacter, workUpdate);
 		} else {
+			Debug.Log ("Steal Work!");
 			//WorkMeterManager.GetInstance ().CanStealWork (actingCharacter, OwnerCharacter);
 			WorkMeterManager.GetInstance ().StealWork (actingCharacter, OwnerCharacter, workUpdate);
 		}
