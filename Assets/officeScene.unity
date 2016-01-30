@@ -546,7 +546,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 209733345}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.51, y: 1, z: 6.22}
+  m_LocalPosition: {x: -1.03, y: 1, z: 6.22}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1323,6 +1323,10 @@ Prefab:
     - target: {fileID: 168800, guid: 243af717afb47441d8be03c638771414, type: 2}
       propertyPath: m_Name
       value: WorkDesk (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 11478784, guid: 243af717afb47441d8be03c638771414, type: 2}
+      propertyPath: OwnerCharacterId
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 243af717afb47441d8be03c638771414, type: 2}
@@ -2738,6 +2742,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11478784, guid: 243af717afb47441d8be03c638771414, type: 2}
+      propertyPath: OwnerCharacterId
+      value: -1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 243af717afb47441d8be03c638771414, type: 2}
   m_IsPrefabParent: 0
@@ -3027,6 +3035,10 @@ Prefab:
       propertyPath: m_Name
       value: WorkDeskGroup
       objectReference: {fileID: 0}
+    - target: {fileID: 11478784, guid: 243af717afb47441d8be03c638771414, type: 2}
+      propertyPath: OwnerCharacterId
+      value: -1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 243af717afb47441d8be03c638771414, type: 2}
   m_IsPrefabParent: 0
@@ -3251,6 +3263,10 @@ Prefab:
     - target: {fileID: 168800, guid: 243af717afb47441d8be03c638771414, type: 2}
       propertyPath: m_Name
       value: WorkDesk (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 11478784, guid: 243af717afb47441d8be03c638771414, type: 2}
+      propertyPath: OwnerCharacterId
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 243af717afb47441d8be03c638771414, type: 2}
@@ -3535,6 +3551,10 @@ Prefab:
     - target: {fileID: 168800, guid: 243af717afb47441d8be03c638771414, type: 2}
       propertyPath: m_Name
       value: WorkDesk (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 11478784, guid: 243af717afb47441d8be03c638771414, type: 2}
+      propertyPath: OwnerCharacterId
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 243af717afb47441d8be03c638771414, type: 2}

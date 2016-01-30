@@ -1,21 +1,28 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class LocationWorkDesk : Location
 {
 
     [SerializeField]
-    private int OwnerCharacterId;
+    private int OwnerCharacterId = -1;
 	private Character OwnerCharacter;
 
 	// Use this for initialization
 	void Start ()
 	{
+	    if (OwnerCharacterId == -1)
+	    {
+	        return;
+	    }
 	    OwnerCharacter = CharactersManager.Instance.characters[OwnerCharacterId];
 	}
 	
 	public override void LocationAction(Character actingCharacter)
 	{
+	    if (OwnerCharacterId == -1)
+	    {
+	        return;
+	    }
 		//Do work
 		float workUpdate = 0.1f;
 
