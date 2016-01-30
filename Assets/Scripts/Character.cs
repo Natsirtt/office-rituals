@@ -36,7 +36,7 @@ public class Character : MonoBehaviour {
 
     public void Move(Vector2 v)
     {
-        moveVector += new Vector3(v.x, v.y, 0) * moveSpeed;
+        moveVector += new Vector3(v.x, 0, v.y) * moveSpeed;
     }
 	
 	// Update is called once per frame
