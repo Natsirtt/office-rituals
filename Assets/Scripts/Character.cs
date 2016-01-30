@@ -24,9 +24,13 @@ public class Character : MonoBehaviour {
 
 	public Transform characterModel;
 
+	private BasicCharacterAnimation moveAnimator = null;
+
 	// Use this for initialization
 	void Start() {
 		gameObject.AddComponent<CoffeeMeter> ();
+
+		moveAnimator = this.GetComponentInChildren<BasicCharacterAnimation>();
 
         UpdateGUI();
 
@@ -97,10 +101,16 @@ public class Character : MonoBehaviour {
 
     public void Move(Vector2 v)
     {
+		bool moved = false;
 		if (canMove) 
 		{
 			moveVector += new Vector3 (v.x, 0, v.y) * moveSpeed;
+			if( moveVector.sqrMagnitude > 0.1f ) {
+				moved = true;
+			}
 		}
+
+		moveAnimator.HasMoved = moved;
     }
 	
 	// Update is called once per frame
@@ -110,7 +120,8 @@ public class Character : MonoBehaviour {
 		if (characterModel != null && moveVector != Vector3.zero) {
 			Vector3 rotateVector = moveVector*1000;
 			rotateVector.y = 1;
-			characterModel.transform.LookAt (rotateVector);
+			// characterModel.transform.LookAt (rotateVector);
+			moveAnimator.Facing = rotateVector;
 		}
 
         moveVector = Vector3.zero;
