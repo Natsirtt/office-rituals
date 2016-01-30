@@ -10,18 +10,20 @@ public abstract class Location : MonoBehaviour {
 	
 	}
 
-	void OnCollisionEnter(Collision coll) 
+	void OnTriggerEnter(Collider coll) 
 	{
+		Debug.Log ("OnTriggerEnter");
 		Character character;
 		character = coll.gameObject.GetComponent<Character>();
-
+		
 		if (character != null) {
 			character.SetLocation (this);
 		}
-	} 
+	}
 
-	void OnCollisionExit(Collision coll) 
+	void OnTriggerExit(Collider coll) 
 	{
+		Debug.Log ("OnTriggerExit");
 		Character character;
 		character = coll.gameObject.GetComponent<Character>();
 		
