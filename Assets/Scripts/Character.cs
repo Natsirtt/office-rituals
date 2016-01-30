@@ -56,13 +56,13 @@ public class Character : MonoBehaviour {
 			return;
 		}
 
+		// Unoptimized code, but MEY!
+		var guiComp = GUI.GetComponent<GUIContainer> ();
+
 		if (!guiInit) {
-			GUI.GetComponent<GUI> ().GuiTransform.localPosition = new Vector3(10, -15 - id * GuiYOffset, 0);
+			guiComp.GuiTransform.localPosition = new Vector3(10, -15 - id * GuiYOffset, 0);
 			guiInit = true;
 		}
-
-		// Unoptimized code, but MEY!
-		var guiComp = GUI.GetComponent<GUI> ();
 
 		// Set UserText
 		guiComp.SetName("Player " + (id + 1));
@@ -160,7 +160,7 @@ public class Character : MonoBehaviour {
 			coffeeComponent.Add (value);
 			Debug.Log ("Current Coffee: " + coffeeComponent.Value);
 
-			GUI.GetComponent<GUI> ().SetCoffee(coffeeComponent.Value);
+			GUI.GetComponent<GUIContainer> ().SetCoffee(coffeeComponent.Value);
 		}
     }
 }
