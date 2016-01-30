@@ -99,7 +99,7 @@ public class Character : MonoBehaviour {
         transform.Translate(moveVector * Time.deltaTime);
 
 		if (characterModel != null && moveVector != Vector3.zero) {
-			Vector3 rotateVector = moveVector;
+			Vector3 rotateVector = moveVector*1000;
 			rotateVector.y = 1;
 			characterModel.transform.LookAt (rotateVector);
 		}
