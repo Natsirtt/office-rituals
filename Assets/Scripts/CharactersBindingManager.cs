@@ -51,7 +51,6 @@ public class CharactersBindingManager : MonoBehaviour
 	        {
 	            if (Input.GetKeyDown(KeyCode.Space))
 				{
-					text.text = "Press Space To Confirm";	
 	                var newCharacter = CharactersManager.Instance.CreateCharacter();
 	                newCharacter.AddComponent<KeyboardController>();
 					newCharacter.transform.position = SpawnLocation.transform.position;

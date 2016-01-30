@@ -35,7 +35,6 @@ public class Character : MonoBehaviour {
 		}
 		canMove = true;
 		hasCoffeCup = false;
-        GUI.GetComponent<GUI> ().GuiTransform.localPosition = new Vector3(10, -15 - id * GuiYOffset, 0);
 	}
 
 	public bool DrinkingCoffe()
@@ -50,7 +49,17 @@ public class Character : MonoBehaviour {
 	}
 
 #region GUI
+	private bool guiInit = false;
 	private void UpdateGUI() {
+
+		if (GUI == null) {
+			return;
+		}
+
+		if (!guiInit) {
+			GUI.GetComponent<GUI> ().GuiTransform.localPosition = new Vector3(10, -15 - id * GuiYOffset, 0);
+			guiInit = true;
+		}
 
 		// Unoptimized code, but MEY!
 		var guiComp = GUI.GetComponent<GUI> ();
