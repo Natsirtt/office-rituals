@@ -3,6 +3,8 @@
 public class Character : MonoBehaviour {
 
 	public GameObject GUI;
+    public float GuiYOffset = 130f;
+    [HideInInspector]
 	public int id;
 
     private Location previousLocation;
@@ -33,6 +35,7 @@ public class Character : MonoBehaviour {
 		}
 		canMove = true;
 		hasCoffeCup = false;
+        GUI.GetComponent<GUI> ().GuiTransform.localPosition = new Vector3(10, -15 - id * GuiYOffset, 0);
 	}
 
 	public bool DrinkingCoffe()
@@ -49,11 +52,11 @@ public class Character : MonoBehaviour {
 #region GUI
 	void UpdateGUI() {
 
-		// Unompimized code, but MEY!
+		// Unoptimized code, but MEY!
 		var guiComp = GUI.GetComponent<GUI> ();
 
 		// Set UserText
-		guiComp.SetName(this.name);
+		guiComp.SetName("Player " + (id + 1));
 
 		// Set Work 
 		var inst = WorkMeterManager.GetInstance();
