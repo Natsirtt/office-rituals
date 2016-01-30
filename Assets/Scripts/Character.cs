@@ -3,6 +3,8 @@ using System.Collections;
 
 public class Character : MonoBehaviour {
 
+	public GameObject GUI;
+
     private Location previousLocation;
 
     [SerializeField]
@@ -16,6 +18,10 @@ public class Character : MonoBehaviour {
 	// Use this for initialization
 	void Start() {
 		gameObject.AddComponent<CoffeeMeter> ();
+
+		WorkMeterManager.GetInstance ().OnChange += OnWorkUpdated;
+		ForceUpdateGUI ();
+
 		canMove = true;
 	}
 	public bool DrinkingCoffe()
@@ -27,6 +33,20 @@ public class Character : MonoBehaviour {
 		}
 		return drinking;
 	}
+
+#region GUI
+	void OnWorkUpdated() {
+		var inst = WorkMeterManager.GetInstance();
+		GUI.GetComponent<GUI> ().SetWork(inst.GetWork(this));
+	}
+	void UpdateCoffeeGUI() {
+		var coffeeComponent = GetComponent<CoffeeMeter> ();
+		GUI.GetComponent<GUI> ().SetCoffee (coffeeComponent.Value);
+	}
+	public void ForceUpdateGUI() {
+		OnWorkUpdated ();
+	}
+#endregion
 
     public bool CanMove()
     {
@@ -68,6 +88,8 @@ public class Character : MonoBehaviour {
 		if (coffeeComponent != null) {
 			coffeeComponent.Add (value);
 			Debug.Log ("Current Coffee: " + coffeeComponent.Value);
+
+			GUI.GetComponent<GUI> ().SetCoffee(coffeeComponent.Value);
 		}
     }
 }
