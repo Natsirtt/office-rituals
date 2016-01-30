@@ -31,13 +31,11 @@ public class Character : MonoBehaviour {
 	// Use this for initialization
 	void Start() {
 		gameObject.AddComponent<CoffeeMeter> ();
-<<<<<<< HEAD
-		CharColor = Color.red;
-=======
 		gameObject.AddComponent<SmokeMeter> ();
 
+		CharColor = Color.red;
+
 		moveAnimator = this.GetComponentInChildren<BasicCharacterAnimation>();
->>>>>>> 8d61a991c1373e46dc4ea6c1ea60e6d3869c31e3
 
         UpdateGUI();
 
