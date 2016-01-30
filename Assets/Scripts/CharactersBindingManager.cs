@@ -1,9 +1,12 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 //using UnityEngine.SceneManagement;
 
 public class CharactersBindingManager : MonoBehaviour
 {
+	public Text text;
+
     private List<int> bindedIds;
 
     void Awake()
@@ -27,16 +30,19 @@ public class CharactersBindingManager : MonoBehaviour
 	            else
 	            {
 	                if (Input.GetButtonDown(XBoxController.SecondaryActionPressedDescriptor(i)))
-	                {
+					{
+						Debug.Log ("Controller Pressed!");
 						Application.LoadLevel("officeScene");
 	                }
 	            }
 	            continue;
 	        }
+
 	        if (i == 0)
 	        {
 	            if (Input.GetKeyDown(KeyCode.Space))
-	            {
+				{
+					text.text = "Press Space To Confirm";	
 	                var newCharacter = CharactersManager.Instance.CreateCharacter();
 	                newCharacter.AddComponent<KeyboardController>();
                     bindedIds.Add(i);
