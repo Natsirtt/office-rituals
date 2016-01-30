@@ -19,13 +19,14 @@ public class LocationSmokeArea : Location {
 
 	IEnumerator Smoke(float time, Character actingCharacter)
 	{
+		actingCharacter.StartSmoke ();
 		actingCharacter.setCanMove (false);
 
 		yield return new WaitForSeconds(time);
 
 		actingCharacter.setCanMove (true);
 
-		actingCharacter.Smoke (75f);
+		actingCharacter.EndSmoke (75f);
 	}
 
 	// Update is called once per frame
