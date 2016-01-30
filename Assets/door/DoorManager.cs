@@ -4,19 +4,27 @@ using System.Collections;
 public class DoorManager : MonoBehaviour {
 
 	public Animator animController;
-
+	private bool open;
 
 	// Use this for initialization
 	void Start () {
-		//animController = GetComponentInChildren<Animator> ();
+		open = false;
 	}
 	void OnTriggerEnter(Collider coll) 
 	{
-		animController.SetTrigger ("openDoor");
+		if (!open) 
+		{
+			open = true;
+			animController.SetTrigger ("openDoor");
+		}
 	}
 	
 	void OnTriggerExit(Collider coll) 
 	{
-		animController.SetTrigger ("closeDoor");
+		if (open) 
+		{
+			animController.SetTrigger ("closeDoor");
+			open = false;
+		}
 	} 
 }
