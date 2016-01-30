@@ -222,12 +222,12 @@ TextMesh:
   m_Alignment: 1
   m_TabSize: 4
   m_FontSize: 36
-  m_FontStyle: 0
+  m_FontStyle: 1
   m_RichText: 1
   m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
   m_Color:
     serializedVersion: 2
-    rgba: 4278255569
+    rgba: 4278190256
 --- !u!23 &115551482
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -722,7 +722,7 @@ Transform:
   m_GameObject: {fileID: 636553181}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 1, z: 1.39999998}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
@@ -997,7 +997,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dd69b33e1acf4b288adf2b235685ca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textMesh: {fileID: 115551481}
+  coffeTime: 7
+  dripSound: {fileID: 8300000, guid: e0ed356c8fa7144daad5079e9ee8b1e7, type: 3}
+  readySound: {fileID: 8300000, guid: 7a87aa526dcc1de49b2d9866cb3dd78c, type: 3}
+  drinkSound: {fileID: 8300000, guid: 46f5277c164ad38459f4e3f7019d6854, type: 3}
 --- !u!23 &954009239
 MeshRenderer:
   m_ObjectHideFlags: 0

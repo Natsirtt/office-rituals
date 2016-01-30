@@ -5,10 +5,12 @@ public class LocationCoffeMaker : Location {
 
 	private int coffeeAvailable;
 	private float coffeStartTime;
-	private float coffeTime = 7;
-	public TextMesh textMesh;
+	public float coffeTime = 7;
+	private TextMesh textMesh;
 	private GameObject[] coffePot;
-
+	public AudioClip dripSound;
+	public AudioClip readySound;
+	public AudioClip drinkSound;
 
 	private AudioSource audioSource;
 
@@ -21,7 +23,7 @@ public class LocationCoffeMaker : Location {
 		{
 			go.SetActive (false);
 		}
-
+		textMesh = GetComponentInChildren<TextMesh> ();
 		audioSource = GetComponentInChildren<AudioSource> ();
 	}
 	
@@ -44,6 +46,9 @@ public class LocationCoffeMaker : Location {
 				coffeeAvailable = coffePot.Length;
 				textMesh.text = "";
 				audioSource.Stop();
+				audioSource.loop = false;
+				audioSource.clip = readySound;
+				audioSource.Play();
 			}
 		}
 	}
@@ -60,6 +65,8 @@ public class LocationCoffeMaker : Location {
 
 				textMesh.text = "Coffee...\n"+coffeTime;
 				coffeStartTime = Time.time;
+				audioSource.loop = true;
+				audioSource.clip = dripSound;
 				audioSource.Play();
 			}
 		} 
@@ -69,6 +76,9 @@ public class LocationCoffeMaker : Location {
 			actingCharacter.AddCoffee (20f);
 			coffeeAvailable -= 1;
 			coffePot[coffeeAvailable].SetActive(false);
+			audioSource.loop = false;
+			audioSource.clip = drinkSound;
+			audioSource.Play();
 		}
 
 
