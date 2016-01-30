@@ -115,6 +115,8 @@ GameObject:
   - 23: {fileID: 2399050}
   - 114: {fileID: 11478784}
   - 65: {fileID: 6551988}
+  - 82: {fileID: 8240832}
+  - 114: {fileID: 11471782}
   m_Layer: 0
   m_Name: WorkDesk
   m_TagString: Untagged
@@ -171,7 +173,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 168800}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.26, y: 0, z: 5.52}
+  m_LocalPosition: {x: -4.62, y: 0, z: 5.52}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 452742}
@@ -475,8 +477,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 1, z: 1}
-  m_Center: {x: -0.5, y: 0, z: 0}
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: -0.3, y: 0, z: 0}
 --- !u!65 &6547902
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -513,6 +515,80 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!82 &8240832
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 170452}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &9591130
 Animator:
   serializedVersion: 3
@@ -530,6 +606,25 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11471782
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 170452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2b792785922fea4ab44316bf1f761a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - {fileID: 8300000, guid: 1f6fdb53c67cfb642b9fd2941b23f8cb, type: 3}
+  - {fileID: 8300000, guid: 0ed2240ab2319c140b6fccc9f67186c4, type: 3}
+  - {fileID: 8300000, guid: 25ef7fbe1097ed8448ec8fcec91fee94, type: 3}
+  chancesToBeChosenPercentage:
+  - 33
+  - 66
+  - 100
 --- !u!114 &11478784
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -541,7 +636,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32eb6bbd1b89f4ec3bce0a48fafd05ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OwnerCharacter: {fileID: 0}
+  WorkValue: 0.1
+  OwnerCharacterId: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
