@@ -410,33 +410,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 954009242}
   m_RootOrder: 0
---- !u!1 &201678396
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 201678397}
-  m_Layer: 0
-  m_Name: Walls
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &201678397
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 201678396}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.461660922, y: 1.89199543, z: -1.60723877}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
 --- !u!1 &203909346
 GameObject:
   m_ObjectHideFlags: 0
@@ -861,7 +834,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: d42fb0a33baaa423b9e98f7e34f4e354, type: 2}
+  - {fileID: 2100000, guid: 43e22aabf46d84aa188629b7f69f45a8, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -1091,7 +1064,7 @@ GameObject:
   - 65: {fileID: 817663298}
   - 23: {fileID: 817663297}
   m_Layer: 0
-  m_Name: Wall (6)
+  m_Name: WallCoffeeArea 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2115,7 +2088,7 @@ GameObject:
   - 65: {fileID: 1617243303}
   - 23: {fileID: 1617243302}
   m_Layer: 0
-  m_Name: Wall (5)
+  m_Name: WallCoffeeArea 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2234,7 +2207,7 @@ GameObject:
   - 65: {fileID: 1815229816}
   - 23: {fileID: 1815229815}
   m_Layer: 0
-  m_Name: Wall (4)
+  m_Name: WallCoffeeArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
