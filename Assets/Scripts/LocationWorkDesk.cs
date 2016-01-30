@@ -37,6 +37,8 @@ public class LocationWorkDesk : Location
 
 		//Do work
 
+        GetComponent<RandomSoundPlayer>().PlaySound();
+
 		float workUpdate = 0.1f;
 
 		Debug.Log ("Before: " + workUpdate);

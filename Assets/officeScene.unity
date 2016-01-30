@@ -193,7 +193,7 @@ Transform:
   - {fileID: 317402117}
   - {fileID: 698755475}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 5
 --- !u!1 &19472419
 GameObject:
   m_ObjectHideFlags: 0
@@ -268,7 +268,7 @@ Transform:
   m_LocalScale: {x: 10, y: 1, z: 10}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
 --- !u!1 &56242927
 GameObject:
   m_ObjectHideFlags: 0
@@ -451,7 +451,7 @@ Transform:
   - {fileID: 1934696022}
   - {fileID: 1951686400}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
 --- !u!1 &104998750
 GameObject:
   m_ObjectHideFlags: 0
@@ -665,7 +665,7 @@ Transform:
   - {fileID: 2145323089}
   - {fileID: 1355425607}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
 --- !u!1 &123085581
 GameObject:
   m_ObjectHideFlags: 0
@@ -1154,7 +1154,7 @@ Transform:
   - {fileID: 1421604474}
   - {fileID: 803988262}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
 --- !u!1 &315611972
 GameObject:
   m_ObjectHideFlags: 0
@@ -1254,7 +1254,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 317402116}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.22, y: 1, z: 6.22}
+  m_LocalPosition: {x: 2.6, y: 1, z: 6.22}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 13514015}
@@ -1849,19 +1849,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 168800, guid: 243af717afb47441d8be03c638771414, type: 2}
       propertyPath: m_Name
-      value: WorkDesk (1)
+      value: WorkDesk ID 2
       objectReference: {fileID: 0}
     - target: {fileID: 11478784, guid: 243af717afb47441d8be03c638771414, type: 2}
       propertyPath: OwnerCharacterId
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6540896, guid: 243af717afb47441d8be03c638771414, type: 2}
-      propertyPath: m_Size.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6540896, guid: 243af717afb47441d8be03c638771414, type: 2}
-      propertyPath: m_Center.x
-      value: -0.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 243af717afb47441d8be03c638771414, type: 2}
@@ -3665,6 +3657,10 @@ Prefab:
       propertyPath: m_Size.x
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 168800, guid: 243af717afb47441d8be03c638771414, type: 2}
+      propertyPath: m_Name
+      value: WorkDesk ID -1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 243af717afb47441d8be03c638771414, type: 2}
   m_IsPrefabParent: 0
@@ -3837,19 +3833,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 168800, guid: 243af717afb47441d8be03c638771414, type: 2}
       propertyPath: m_Name
-      value: WorkDesk (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6540896, guid: 243af717afb47441d8be03c638771414, type: 2}
-      propertyPath: m_Size.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6540896, guid: 243af717afb47441d8be03c638771414, type: 2}
-      propertyPath: m_Center.x
-      value: -0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 11478784, guid: 243af717afb47441d8be03c638771414, type: 2}
-      propertyPath: OwnerCharacterId
-      value: 0
+      value: WorkDesk ID 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 243af717afb47441d8be03c638771414, type: 2}
@@ -3978,7 +3962,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
 --- !u!114 &1616090484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4111,7 +4095,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 168800, guid: 243af717afb47441d8be03c638771414, type: 2}
       propertyPath: m_Name
-      value: WorkDeskGroup
+      value: WorkDesk ID -1
       objectReference: {fileID: 0}
     - target: {fileID: 11478784, guid: 243af717afb47441d8be03c638771414, type: 2}
       propertyPath: OwnerCharacterId
@@ -4534,7 +4518,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 168800, guid: 243af717afb47441d8be03c638771414, type: 2}
       propertyPath: m_Name
-      value: WorkDesk (3)
+      value: WorkDesk ID 1
       objectReference: {fileID: 0}
     - target: {fileID: 11478784, guid: 243af717afb47441d8be03c638771414, type: 2}
       propertyPath: OwnerCharacterId
@@ -4792,7 +4776,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
 --- !u!1001 &2017898118
 Prefab:
   m_ObjectHideFlags: 0
@@ -4834,7 +4818,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 168800, guid: 243af717afb47441d8be03c638771414, type: 2}
       propertyPath: m_Name
-      value: WorkDesk (4)
+      value: WorkDesk ID 3
       objectReference: {fileID: 0}
     - target: {fileID: 11478784, guid: 243af717afb47441d8be03c638771414, type: 2}
       propertyPath: OwnerCharacterId
