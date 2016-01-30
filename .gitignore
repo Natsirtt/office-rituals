@@ -24,3 +24,11 @@ ExportedObj/
 
 # Unity3D Generated File On Crash Reports
 sysinfo.txt
+
+# horrible temporary files
+.DS_Store
+[Tt]humbs.db
+
+#temporary/working files
+*~
+*.blend1

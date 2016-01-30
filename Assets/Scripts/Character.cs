@@ -3,45 +3,35 @@ using System.Collections;
 
 public class Character : MonoBehaviour {
 
-	public GameObject GUI;
-
     private Location previousLocation;
 
     [SerializeField]
     private float moveSpeed = 1.0f;
     private Vector3 moveVector = Vector3.zero;
 
+	private bool canMove;
+
 	// Use this for initialization
 	void Start() {
 		gameObject.AddComponent<CoffeeMeter> ();
-
-		WorkMeterManager.GetInstance ().OnChange += OnWorkUpdated;
-
-		ForceUpdateGUI ();
+		canMove = true;
 	}
-
-	#region GUI
-	void OnWorkUpdated() {
-		var inst = WorkMeterManager.GetInstance();
-		GUI.GetComponent<GUI> ().SetWork(inst.GetWork(this));
-	}
-	void UpdateCoffeeGUI() {
-		var coffeeComponent = GetComponent<CoffeeMeter> ();
-		GUI.GetComponent<GUI> ().SetCoffee (coffeeComponent.Value);
-	}
-	public void ForceUpdateGUI() {
-		OnWorkUpdated ();
-	}
-	#endregion
 
     public bool CanMove()
     {
-        return true; // TODO
+        return canMove; // TODO
     }
+	public void setCanMove(bool val)
+	{
+		canMove = val;
+	}
 
     public void Move(Vector2 v)
     {
-        moveVector += new Vector3(v.x, 0, v.y) * moveSpeed;
+		if (canMove) 
+		{
+			moveVector += new Vector3 (v.x, 0, v.y) * moveSpeed;
+		}
     }
 	
 	// Update is called once per frame
@@ -49,7 +39,7 @@ public class Character : MonoBehaviour {
         transform.Translate(moveVector * Time.deltaTime);
         moveVector = Vector3.zero;
 	}
-
+    
     public void SetLocation(Location location) {
         previousLocation = location;
     }
@@ -65,8 +55,6 @@ public class Character : MonoBehaviour {
 		if (coffeeComponent != null) {
 			coffeeComponent.Add (value);
 			Debug.Log ("Current Coffee: " + coffeeComponent.Value);
-
-			GUI.GetComponent<GUI> ().CoffeeSlider.value = coffeeComponent.Value / 100.0f;
 		}
     }
 }

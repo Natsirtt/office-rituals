@@ -3,19 +3,29 @@ using System.Collections;
 
 public class LocationCoffeMaker : Location {
 
-	private float coffeeAvailable;
+	private int coffeeAvailable;
 	private float coffeStartTime;
-	private float coffeTime = 7;
-	public TextMesh textMesh;
-	public GameObject coffePot;
+	public float coffeTime = 7;
+	private TextMesh textMesh;
+	private GameObject[] coffePot;
+	public AudioClip dripSound;
+	public AudioClip readySound;
+	public AudioClip drinkSound;
+
+	private Character lastActingCharacter;
 
 	private AudioSource audioSource;
 
 	// Use this for initialization
 	void Start () {
-		coffeeAvailable = 0f;
+		coffeeAvailable = 0;
 		coffeStartTime = 0f;
-		coffePot.SetActive (false);
+		coffePot = GameObject.FindGameObjectsWithTag("CoffeePots");
+		foreach (GameObject go in coffePot) 
+		{
+			go.SetActive (false);
+		}
+		textMesh = GetComponentInChildren<TextMesh> ();
 		audioSource = GetComponentInChildren<AudioSource> ();
 	}
 	
@@ -30,35 +40,55 @@ public class LocationCoffeMaker : Location {
 
 			if (remainingCoffeeTime <= 0) 
 			{
-				coffeeAvailable = 100f;
 				coffeStartTime = 0f;
-				coffePot.SetActive (true);
+				foreach (GameObject go in coffePot) 
+				{
+					go.SetActive (true);
+				}
+				coffeeAvailable = coffePot.Length;
 				textMesh.text = "";
 				audioSource.Stop();
+				audioSource.loop = false;
+				audioSource.clip = readySound;
+				audioSource.Play();
+				lastActingCharacter.setCanMove(true); 
 			}
 		}
 	}
 
 	public override void LocationAction(Character actingCharacter)
 	{
-		//Debug.Log("cofee location");
-		if (coffeeAvailable <= 0f) 
+		Debug.Log("cofee location");
+		if (coffeeAvailable <= 0) 
 		{
 			if (coffeStartTime == 0f)
 			{
-				// Making coffee
-				//Debug.Log("Starting coffe Maker\n"+coffeTime);
+				//Making coffee
+				Debug.Log("Starting coffe Maker\n"+coffeTime);
 
 				textMesh.text = "Coffee...\n"+coffeTime;
 				coffeStartTime = Time.time;
+				audioSource.loop = true;
+				audioSource.clip = dripSound;
 				audioSource.Play();
+				lastActingCharacter = actingCharacter;
+				actingCharacter.setCanMove(false);
 			}
 		} 
 		else 
 		{
-			//Debug.Log("Drinking cofee");
+			Debug.Log("Drinking cofee");
 			actingCharacter.AddCoffee (20f);
-			coffeeAvailable -= 20f;
+			coffeeAvailable -= 1;
+			coffePot[coffeeAvailable].SetActive(false);
+			audioSource.loop = false;
+			audioSource.clip = drinkSound;
+			audioSource.Play();
 		}
+
+
+
 	}
+
+
 }
