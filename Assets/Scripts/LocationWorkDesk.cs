@@ -1,20 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class LocationWorkDesk : Location {
+public class LocationWorkDesk : Location
+{
 
-	public Character OwnerCharacter;
+    [SerializeField]
+    private int OwnerCharacterId;
+	private Character OwnerCharacter;
 
 	// Use this for initialization
-	void Start () {
-	
+	void Start ()
+	{
+	    OwnerCharacter = CharactersManager.Instance.characters[OwnerCharacterId];
 	}
 	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
 	public override void LocationAction(Character actingCharacter)
 	{
 		//Do work
