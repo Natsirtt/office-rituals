@@ -77,13 +77,16 @@ public class LocationCoffeMaker : Location {
 		} 
 		else 
 		{
-			Debug.Log("Drinking cofee");
-			actingCharacter.AddCoffee (20f);
-			coffeeAvailable -= 1;
-			coffePot[coffeeAvailable].SetActive(false);
-			audioSource.loop = false;
-			audioSource.clip = drinkSound;
-			audioSource.Play();
+			if (!actingCharacter.DrinkingCoffe())
+			{
+				Debug.Log("Drinking cofee");
+				actingCharacter.TakeCoffeeCup();
+				coffeeAvailable -= 1;
+				coffePot[coffeeAvailable].SetActive(false);
+				audioSource.loop = false;
+				audioSource.clip = drinkSound;
+				audioSource.Play();
+			}
 		}
 
 

@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class Character : MonoBehaviour {
+
+	public GameObject GUI;
 
     private Location previousLocation;
 
@@ -10,16 +11,56 @@ public class Character : MonoBehaviour {
     private Vector3 moveVector = Vector3.zero;
 
 	private bool canMove;
+	private float lastCoffeDrink;
+	public float coffeeDrinkTime = 5;
+
+	public GameObject coffeCup;
+
+	private bool hasCoffeCup;
+
+	public Transform characterModel;
 
 	// Use this for initialization
 	void Start() {
 		gameObject.AddComponent<CoffeeMeter> ();
+
+		WorkMeterManager.GetInstance ().OnChange += OnWorkUpdated;
+		ForceUpdateGUI ();
+		if (coffeCup != null) {
+			coffeCup.SetActive (false);
+		}
 		canMove = true;
+		hasCoffeCup = false;
 	}
+
+	public bool DrinkingCoffe()
+	{
+		hasCoffeCup = false;
+		bool drinking = false;
+		if (lastCoffeDrink != 0 && Time.time < lastCoffeDrink + coffeeDrinkTime) 
+		{
+			drinking = true;
+		}
+		return drinking;
+	}
+
+#region GUI
+	void OnWorkUpdated() {
+		var inst = WorkMeterManager.GetInstance();
+		GUI.GetComponent<GUI> ().SetWork(inst.GetWork(this));
+	}
+	void UpdateCoffeeGUI() {
+		var coffeeComponent = GetComponent<CoffeeMeter> ();
+		GUI.GetComponent<GUI> ().SetCoffee (coffeeComponent.Value);
+	}
+	public void ForceUpdateGUI() {
+		OnWorkUpdated ();
+	}
+#endregion
 
     public bool CanMove()
     {
-        return canMove; // TODO
+        return canMove;
     }
 	public void setCanMove(bool val)
 	{
@@ -31,12 +72,20 @@ public class Character : MonoBehaviour {
 		if (canMove) 
 		{
 			moveVector += new Vector3 (v.x, 0, v.y) * moveSpeed;
+
 		}
     }
 	
 	// Update is called once per frame
 	void Update() {
         transform.Translate(moveVector * Time.deltaTime);
+
+		if (characterModel != null && moveVector != Vector3.zero) {
+			Vector3 rotateVector = moveVector;
+			rotateVector.y = 1;
+			characterModel.transform.LookAt (rotateVector);
+		}
+
         moveVector = Vector3.zero;
 	}
     
@@ -45,9 +94,18 @@ public class Character : MonoBehaviour {
     }
 
     public void DoLocationAction() {
-        if (previousLocation != null) {
+        
+		if (hasCoffeCup) 
+		{
+			AddCoffee(20f);
+			hasCoffeCup = false;
+			coffeCup.SetActive(false);
+		}
+
+		if (previousLocation != null) {
             previousLocation.LocationAction(this);
         }
+
     }
 
     public void DoSecondaryAction()
@@ -56,11 +114,25 @@ public class Character : MonoBehaviour {
         // TODO
     }
 
+	public void TakeCoffeeCup()
+	{
+		if (!hasCoffeCup && !DrinkingCoffe ()) 
+		{
+			hasCoffeCup = true;
+
+			coffeCup.SetActive(true);
+		}
+	}
+
     public void AddCoffee(float value) {
+		lastCoffeDrink = Time.time;
+
 		var coffeeComponent = GetComponent<CoffeeMeter> ();
 		if (coffeeComponent != null) {
 			coffeeComponent.Add (value);
 			Debug.Log ("Current Coffee: " + coffeeComponent.Value);
+
+			GUI.GetComponent<GUI> ().SetCoffee(coffeeComponent.Value);
 		}
     }
 }

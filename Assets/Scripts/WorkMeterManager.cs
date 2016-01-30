@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -12,8 +13,19 @@ public class WorkMeterManager {
 
 	public Dictionary<Character, float> AllWork = new Dictionary<Character, float>();
 
+	public event Action OnChange;
+
 	public float GetTotalWork() {
 		return AllWork.Sum (x => x.Value); 
+	}
+
+	public float GetWork(Character character) {
+		if (AllWork.ContainsKey (character)) {
+			return AllWork[character];
+		} else {
+			// TODO: Add Value?
+			return 0.0f;
+		}
 	}
 
 	public void AddWork(Character character, float workValue) {
@@ -21,6 +33,10 @@ public class WorkMeterManager {
 			AllWork [character] += workValue;
 		} else {
 			AllWork [character] = workValue;
+		}
+
+		if (OnChange != null) {
+			OnChange ();
 		}
 
 		CheckWork ();
@@ -44,18 +60,28 @@ public class WorkMeterManager {
 	/// <summary>
 	/// Steals the work.
 	/// </summary>
-	/// <returns>If we stole some work</returns>
+	/// <returns>What we stole</returns>
 	/// <param name="character1">Theif</param>
 	/// <param name="character2">Victim</param>
 	/// <param name="workValue">Work value to steal.</param>
-	public bool StealWork(Character character1, Character character2, float workValue) {
+	public float StealWork(Character character1, Character character2, float workValue) {
 		if (CanStealWork (character1, character2)) {
-			float workStolen = (AllWork [character2] - workValue);
+			float workStolen = workValue;
+			if (AllWork [character2] < workStolen) {
+				workStolen = AllWork [character2];
+			}
+
 			AddWork (character1, workStolen);
 			AllWork [character2] -= workStolen;
+
+			if (OnChange != null) {
+				OnChange ();
+			}
+
+			return workStolen;
 		}
 
-		return false;
+		return 0.0f;
 	}
 
 	/// <summary>
