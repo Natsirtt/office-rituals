@@ -3,6 +3,8 @@
 public class Character : MonoBehaviour {
 
 	public GameObject GUI;
+    public float GuiYOffset = 130f;
+    [HideInInspector]
 	public int id;
 
     private Location previousLocation;
@@ -14,6 +16,7 @@ public class Character : MonoBehaviour {
 	private bool canMove;
 	private float lastCoffeDrink;
 	public float coffeeDrinkTime = 5;
+    public float coffeeEarnedFromCup = 75f;
 
 	public GameObject coffeCup;
 
@@ -25,14 +28,14 @@ public class Character : MonoBehaviour {
 	void Start() {
 		gameObject.AddComponent<CoffeeMeter> ();
 
-		WorkMeterManager.GetInstance ().OnChange += UpdateGUI;
-		ForceUpdateGUI ();
+        UpdateGUI();
 
 		if (coffeCup != null) {
 			coffeCup.SetActive (false);
 		}
 		canMove = true;
 		hasCoffeCup = false;
+        GUI.GetComponent<GUI> ().GuiTransform.localPosition = new Vector3(10, -15 - id * GuiYOffset, 0);
 	}
 
 	public bool DrinkingCoffe()
@@ -47,16 +50,13 @@ public class Character : MonoBehaviour {
 	}
 
 #region GUI
-	void UpdateGUI() {
+	private void UpdateGUI() {
 
-		if (GUI == null)
-			return;
-		
-		// Unompimized code, but MEY!
+		// Unoptimized code, but MEY!
 		var guiComp = GUI.GetComponent<GUI> ();
 
 		// Set UserText
-		guiComp.SetName(this.name);
+		guiComp.SetName("Player " + (id + 1));
 
 		// Set Work 
 		var inst = WorkMeterManager.GetInstance();
@@ -74,9 +74,6 @@ public class Character : MonoBehaviour {
 
 		// Set OCD
 		guiComp.SetOCD(0.0f);
-	}
-	public void ForceUpdateGUI() {
-		UpdateGUI ();
 	}
 #endregion
 
@@ -108,6 +105,7 @@ public class Character : MonoBehaviour {
 		}
 
         moveVector = Vector3.zero;
+        UpdateGUI();
 	}
     
     public void SetLocation(Location location) {
@@ -118,7 +116,7 @@ public class Character : MonoBehaviour {
         
 		if (hasCoffeCup) 
 		{
-			AddCoffee(20f);
+			AddCoffee(coffeeEarnedFromCup);
 			hasCoffeCup = false;
 			coffeCup.SetActive(false);
 		}

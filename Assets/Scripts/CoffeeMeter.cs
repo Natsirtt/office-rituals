@@ -1,14 +1,7 @@
-﻿using UnityEngine;
-using System.Collections;
-
-public class CoffeeMeter : Meter {
+﻿public class CoffeeMeter : DepletingMeter {
 
 	void Start() {
 		Value = 50.0f;
-	}
-
-	void Update() {
-		// TODO: Lower value by time
 	}
 
 	public override void CalcWork(ref float value) {

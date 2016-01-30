@@ -13,8 +13,6 @@ public class WorkMeterManager {
 
 	public Dictionary<Character, float> AllWork = new Dictionary<Character, float>();
 
-	public event Action OnChange;
-
 	public float GetTotalWork() {
 		return AllWork.Sum (x => x.Value); 
 	}
@@ -33,10 +31,6 @@ public class WorkMeterManager {
 			AllWork [character] += workValue;
 		} else {
 			AllWork [character] = workValue;
-		}
-
-		if (OnChange != null) {
-			OnChange ();
 		}
 
 		CheckWork ();
@@ -73,10 +67,6 @@ public class WorkMeterManager {
 
 			AddWork (character1, workStolen);
 			AllWork [character2] -= workStolen;
-
-			if (OnChange != null) {
-				OnChange ();
-			}
 
 			return workStolen;
 		}

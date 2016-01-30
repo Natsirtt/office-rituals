@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
 
 public class GUI : MonoBehaviour {
 
@@ -22,6 +21,8 @@ public class GUI : MonoBehaviour {
 	// OCD
 	public Slider OCDSlider;
 
+    // Maybe I will just cheat with this
+    public RectTransform GuiTransform;
 
 
 	public void SetName(string name) {
