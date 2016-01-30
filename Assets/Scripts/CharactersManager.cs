@@ -33,7 +33,7 @@ public class CharactersManager : MonoBehaviour
     {
         var newChar = Instantiate(characterPrefab);
         newChar.transform.parent = transform;
-        newChar.SetActive(false);
+        //newChar.SetActive(false);
         characters.Add(newChar.GetComponent<Character>());
 		characters [characters.Count - 1].id = nextCharacterId;
         nextCharacterId++;

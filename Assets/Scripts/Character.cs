@@ -49,6 +49,9 @@ public class Character : MonoBehaviour {
 #region GUI
 	void UpdateGUI() {
 
+		if (GUI == null)
+			return;
+		
 		// Unompimized code, but MEY!
 		var guiComp = GUI.GetComponent<GUI> ();
 
