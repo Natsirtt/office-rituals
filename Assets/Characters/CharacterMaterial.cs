@@ -8,8 +8,11 @@ public class CharacterMaterial : MonoBehaviour {
 
 	private Renderer renderer_ = null;
 
-	static List<Texture> s_textures_ = new List<Texture>();
-	static CharacterMaterial() {
+	static List<Texture> s_textures_ = null;
+	static void LoadCharacterMaterial() {
+		if (s_textures_!= null)
+			return;
+		s_textures_ = new List<Texture>();
 		for(var i=0;i<4; ++i) {
 			LoadTexture(string.Format("character-diffuse-{0}", i+1));
 		}
@@ -20,6 +23,7 @@ public class CharacterMaterial : MonoBehaviour {
 	}
 
 	private static void LoadTexture(string path) {
+
 		var texture = Resources.Load<Texture>(path);
 		if( texture == null ) {
 			Debug.Log(string.Format("Unable to load texture {0}", path));
@@ -29,6 +33,7 @@ public class CharacterMaterial : MonoBehaviour {
 	}
 
 	private void UpdateTextures() {
+		LoadCharacterMaterial ();
 		if( this.TextureIndex == this.last_texture_index_ ) return;
 		this.last_texture_index_ = this.TextureIndex;
 

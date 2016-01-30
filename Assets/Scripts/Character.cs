@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class Character : MonoBehaviour {
 
 	public GameObject GUI;
+	public int id;
 
     private Location previousLocation;
 
@@ -61,7 +61,7 @@ public class Character : MonoBehaviour {
 
     public bool CanMove()
     {
-        return canMove; // TODO
+        return canMove;
     }
 	public void setCanMove(bool val)
 	{
@@ -109,6 +109,12 @@ public class Character : MonoBehaviour {
 
     }
 
+    public void DoSecondaryAction()
+    {
+        Debug.LogWarning("No secondary action implemented yet");
+        // TODO
+    }
+
 	public void TakeCoffeeCup()
 	{
 		if (!hasCoffeCup && !DrinkingCoffe ()) 
@@ -118,7 +124,6 @@ public class Character : MonoBehaviour {
 			coffeCup.SetActive(true);
 		}
 	}
-
 
     public void AddCoffee(float value) {
 		lastCoffeDrink = Time.time;

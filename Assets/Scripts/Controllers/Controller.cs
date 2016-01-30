@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 [RequireComponent(typeof(Character))]
 public abstract class Controller : MonoBehaviour
@@ -8,6 +9,10 @@ public abstract class Controller : MonoBehaviour
     void Awake()
     {
         character = GetComponent<Character>();
+        foreach (var j in Input.GetJoystickNames())
+        {
+            Debug.Log(j);
+        }
     }
 
 	// Update is called once per frame
@@ -17,6 +22,11 @@ public abstract class Controller : MonoBehaviour
             //Debug.Log("Action pressed by " + this.name);
 	        character.DoLocationAction();
 	    }
+	    if (IsSecondaryActionPressed())
+	    {
+	        Debug.Log("Secondary pressed by " + this.name);
+	        character.DoSecondaryAction();
+	    }
 	    if (character.CanMove())
 	    {
 	        character.Move(ComputeMovement().normalized);
@@ -24,5 +34,6 @@ public abstract class Controller : MonoBehaviour
 	}
 
     protected abstract bool IsActionPressed();
+    protected abstract bool IsSecondaryActionPressed();
     protected abstract Vector2 ComputeMovement();
 }
