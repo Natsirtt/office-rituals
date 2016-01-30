@@ -3,6 +3,9 @@
 public class LocationWorkDesk : Location
 {
 
+	[SerializeField]
+	public float WorkValue = 0.1f;
+
     [SerializeField]
     private int OwnerCharacterId = -1;
 	private Character OwnerCharacter;
@@ -30,12 +33,14 @@ public class LocationWorkDesk : Location
 	    {
 	        return;
 	    }
+
 		//Do work
+
 		float workUpdate = 0.1f;
 
-		//if (actingCharacter != OwnerCharacter) {
-		//	workUpdate = - workUpdate;
-		//}
+		Debug.Log ("Before: " + workUpdate);
+		actingCharacter.GetComponent<CoffeeMeter> ().CalcWork (ref workUpdate);
+		Debug.Log ("After: " + workUpdate);
 
 		if (OwnerCharacter == actingCharacter) {
 			//Debug.Log ("Add Work! ");

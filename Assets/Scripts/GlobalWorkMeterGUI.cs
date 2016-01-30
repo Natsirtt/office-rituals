@@ -6,21 +6,20 @@ using System.Collections;
 public class GlobalWorkMeterGUI : MonoBehaviour {
 
 	void OnGUI() {
+		const float height = 10.0f;
 
-		GUIDrawRect (new Rect (0, 0, Screen.width, 20), Color.white);
+		GUIDrawRect (new Rect (0, 0, Screen.width, height), Color.white);
 
 		float x = 0;
 
 		var workInst = WorkMeterManager.GetInstance ();
 		for (int i = 0; i < workInst.AllWork.Keys.Count; i++) {
 
-			Color color = new Color (Random.Range (0.0f, 1.0f), Random.Range (0.0f, 1.0f), Random.Range (0.0f, 1.0f));
-
 			Character key = (Character)workInst.AllWork.Keys.ElementAt(i);
-			float value = workInst.GetWork(key);
+			float value = workInst.GetWork(key) / 100.0f;
 
-			float width = value * Screen.width;
-			GUIDrawRect (new Rect (x, 0, width, 20), color);
+			float width = Screen.width * value;
+			GUIDrawRect (new Rect (x, 0, width, height), key.CharColor);
 			x += width;
 		}
 	}
