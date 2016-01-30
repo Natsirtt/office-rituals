@@ -50,6 +50,12 @@ public class Character : MonoBehaviour {
         }
     }
 
+    public void DoSecondaryAction()
+    {
+        Debug.LogWarning("No secondary action implemented yet");
+        // TODO
+    }
+
     public void AddCoffee(float value) {
 		var coffeeComponent = GetComponent<CoffeeMeter> ();
 		if (coffeeComponent != null) {

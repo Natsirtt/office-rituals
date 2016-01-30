@@ -7,6 +7,11 @@ public class KeyboardController : Controller
         return Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.E);
     }
 
+    protected override bool IsSecondaryActionPressed()
+    {
+        return Input.GetKeyDown(KeyCode.LeftShift);
+    }
+
     protected override Vector2 ComputeMovement()
     {
         Vector2 result = Vector2.zero;
