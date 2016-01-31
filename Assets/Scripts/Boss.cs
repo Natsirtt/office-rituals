@@ -24,6 +24,7 @@ public class Boss : MonoBehaviour {
 	void Start () {
 		navAgent = GetComponent<NavMeshAgent> ();
 		activeRoute = -1;
+		currentWayPointTarget = 0;
 		audioS = GetComponent<AudioSource> (); 
 		text.text = "";
 		textOffset = text.transform.position - transform.position;
@@ -64,28 +65,44 @@ public class Boss : MonoBehaviour {
 		}
 	}
 
-	void Shout()
+	void ShoutTowardsMeeting()
 	{
 		audioS.clip = bossTalk.getNextSound ();
 		audioS.Play ();
-		text.text = bossTalk.getNextLine ();
+		text.text = bossTalk.getNextLineWalkToMeeting ();
+	}
+	void ShoutAtMeeting()
+	{
+		audioS.clip = bossTalk.getNextSound ();
+		audioS.Play ();
+		text.text = bossTalk.getNextLineAtMeeting ();
+	}
+	void ShoutTowardsOffice()
+	{
+		audioS.clip = bossTalk.getNextSound ();
+		audioS.Play ();
+		text.text = bossTalk.getNextLineWalkToOffice ();
 	}
 
 	void EndOfRoute1()
 	{
 		StartCoroutine (PointlessMeeting ());
-		text.text = "";
+
 	}
 
 	IEnumerator PointlessMeeting()
 	{
-		Shout ();
+		ShoutAtMeeting ();
 		yield return new WaitForSeconds(2);
-		Shout ();
+		ShoutAtMeeting ();
 		yield return new WaitForSeconds(2);
-		Shout ();
+		ShoutAtMeeting ();
 		yield return new WaitForSeconds(2);
-		Shout ();
+		ShoutAtMeeting ();
+		yield return new WaitForSeconds(2);
+		ShoutAtMeeting ();
+		yield return new WaitForSeconds(2);
+		ShoutAtMeeting ();
 		yield return new WaitForSeconds(3);
 		text.text = "";
 		//navAgent.Resume ();
@@ -109,10 +126,10 @@ public class Boss : MonoBehaviour {
 
 		if (activeRoute == 1) 
 		{
-			Debug.Log ("dist="+navAgent.remainingDistance);
+			//Debug.Log ("dist="+navAgent.remainingDistance);
 			if (navAgent.remainingDistance < wayPointSwitchDistance && wayPointsRoute1.Length>1) 
 			{
-				Shout ();
+				ShoutTowardsMeeting ();
 				Debug.Log ("reached waypoint number "+currentWayPointTarget);
 				currentWayPointTarget ++;
 				if (currentWayPointTarget >= wayPointsRoute1.Length) {
@@ -133,7 +150,7 @@ public class Boss : MonoBehaviour {
 		{
 			if (navAgent.remainingDistance < wayPointSwitchDistance && wayPointsRoute2.Length>1) 
 			{
-				Shout ();
+				ShoutTowardsOffice ();
 				currentWayPointTarget ++;
 				if (currentWayPointTarget >= wayPointsRoute2.Length) {
 					currentWayPointTarget = 0;

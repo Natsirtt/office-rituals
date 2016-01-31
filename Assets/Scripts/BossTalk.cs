@@ -3,7 +3,9 @@ using System.Collections;
 
 public class BossTalk : MonoBehaviour {
 
-	public string[] lines;
+	public string[] linesTowardsMeeting;
+	public string[] linesAtMeeting;
+	public string[] linesTowardsOffice;
 	public AudioClip[] sounds;
 
 
@@ -12,10 +14,20 @@ public class BossTalk : MonoBehaviour {
 	
 	}
 
-	public string getNextLine()
+	public string getNextLineWalkToMeeting()
 	{
-		int l = Random.Range (0, lines.Length - 1);
-		return lines[l];
+		int l = Random.Range (0, linesTowardsMeeting.Length - 1);
+		return linesTowardsMeeting[l];
+	}
+	public string getNextLineAtMeeting()
+	{
+		int l = Random.Range (0, linesAtMeeting.Length - 1);
+		return linesAtMeeting[l];
+	}
+	public string getNextLineWalkToOffice()
+	{
+		int l = Random.Range (0, linesTowardsOffice.Length - 1);
+		return linesTowardsOffice[l];
 	}
 
 	public AudioClip getNextSound()
