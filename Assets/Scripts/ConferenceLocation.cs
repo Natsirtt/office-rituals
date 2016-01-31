@@ -37,10 +37,11 @@ public class ConferenceLocation : Location {
 	IEnumerator PunishPlayer(Character player)
 	{
 		yield return new WaitForSeconds(1);
+		player.StartSmokeOverCharacter ();
 		player.setCanMove (false);
-		yield return new WaitForSeconds(5);
+		yield return new WaitForSeconds(10);
 		player.setCanMove (true);
-
+		player.StopSmokeOverCharacter ();
 	}
 	// Update is called once per frame
 	void Update () {
