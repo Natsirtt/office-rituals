@@ -10,6 +10,12 @@ public class LocationWorkDesk : Location
     private int OwnerCharacterId = -1;
 	private Character OwnerCharacter;
 
+    [SerializeField]
+    private bool useSparksParticles = true;
+
+    [SerializeField]
+    private ParticleSystem sparks;
+
 	// Use this for initialization
 	void Start ()
 	{
@@ -38,6 +44,10 @@ public class LocationWorkDesk : Location
 		//Do work
 
         GetComponent<RandomSoundPlayer>().PlaySound();
+	    if (useSparksParticles && !sparks.isPlaying)
+	    {
+	        sparks.Play();
+	    }
 
 		float workUpdate = 0.25f;
 
