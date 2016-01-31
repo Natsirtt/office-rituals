@@ -63,7 +63,7 @@ public class Character : MonoBehaviour {
 	}
 
 #region GUI
-	static Color GetColor(int index) {
+	public static Color GetColor(int index) { // TODO: Tryout all the colors properly!
 		switch (index) {
 		case 0: return Color.red;
 		case 1: return Color.green;

@@ -13,6 +13,7 @@ public class WorkMeterManager {
 
 	public Dictionary<Character, float> AllWork = new Dictionary<Character, float>();
 
+
 	public float GetTotalWork() {
 		return AllWork.Sum (x => x.Value); 
 	}
