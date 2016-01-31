@@ -39,11 +39,12 @@ public class Boss : MonoBehaviour {
 	{
 		nextBossTrigger = Time.time + bossTriggerInterval - bossTriggerIntervalRand + Random.Range (0, bossTriggerIntervalRand);
 
-		//nextBossTrigger = Time.time + 4;
+		nextBossTrigger = Time.time + 4;
 	}
 
 	void StartBossRound()
 	{
+		confLocation.CheckPlayersInConfRoom ();
 		bossActive = true;
 
 		TriggerFirstRoute ();
@@ -63,6 +64,16 @@ public class Boss : MonoBehaviour {
 		if (wayPointsRoute1.Length > 0) 
 		{
 			navAgent.SetDestination (wayPointsRoute1 [currentWayPointTarget].transform.position);
+		}
+	}
+
+	void TriggerSecondRoute()
+	{
+		activeRoute = 2;
+		currentWayPointTarget = 0;
+		if (wayPointsRoute2.Length > 0) 
+		{
+			navAgent.SetDestination (wayPointsRoute2 [currentWayPointTarget].transform.position);
 		}
 	}
 
@@ -108,14 +119,25 @@ public class Boss : MonoBehaviour {
 		text.text = "";
 		//navAgent.Resume ();
 
-		confLocation.CheckPlayersInConfRoom ();
+		bool anyOneMissing = confLocation.CheckPlayersInConfRoom ();
 
-		activeRoute = 2;
-		currentWayPointTarget = 0;
-		if (wayPointsRoute2.Length > 0) 
+		if (anyOneMissing) 
 		{
-			navAgent.SetDestination (wayPointsRoute2 [currentWayPointTarget].transform.position);
+			StartCoroutine (ShoutAtMissingPersons ());
+		} 
+		else 
+		{
+			TriggerSecondRoute ();
 		}
+
+	}
+
+	IEnumerator ShoutAtMissingPersons()
+	{
+		//navAgent.SetDestination (wayPointsRoute2 [currentWayPointTarget].transform.position);
+
+		yield return new WaitForSeconds(3);
+		TriggerSecondRoute ();
 	}
 
 	// Update is called once per frame

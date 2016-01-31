@@ -162,6 +162,10 @@ public class Character : MonoBehaviour {
         }
         previousLocation = location;
     }
+	public Location GetCurrentLocation()
+	{
+		return previousLocation;
+	}
 
     public void DoLocationAction() {
         
