@@ -44,6 +44,7 @@ GameObject:
   - 33: {fileID: 3379082}
   - 23: {fileID: 2359978}
   - 95: {fileID: 9591130}
+  - 114: {fileID: 11406316}
   m_Layer: 0
   m_Name: Computer
   m_TagString: Untagged
@@ -190,7 +191,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 168800}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.73, y: 0, z: 5.52}
+  m_LocalPosition: {x: -4.62, y: 0, z: 5.52}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 452742}
@@ -636,6 +637,18 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11406316
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 127656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d012ddbd869274616b8b112edbd1b795, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxShakeTime: 1
 --- !u!114 &11471782
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -667,9 +680,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WorkValue: 0.1
-  OwnerCharacterId: 2
+  OwnerCharacterId: 0
   useSparksParticles: 1
   sparks: {fileID: 19858834}
+  ItemsToShakeWhenWorking:
+  - {fileID: 11406316}
 --- !u!198 &19858834
 ParticleSystem:
   m_ObjectHideFlags: 1

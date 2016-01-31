@@ -4694,18 +4694,6 @@ Prefab:
       propertyPath: m_Name
       value: WorkDesk ID 0
       objectReference: {fileID: 0}
-    - target: {fileID: 472616, guid: 243af717afb47441d8be03c638771414, type: 2}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11478784, guid: 243af717afb47441d8be03c638771414, type: 2}
-      propertyPath: OwnerCharacterId
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 19858834, guid: 243af717afb47441d8be03c638771414, type: 2}
-      propertyPath: InitialModule.startLifetime.scalar
-      value: 0.4
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 243af717afb47441d8be03c638771414, type: 2}
   m_IsPrefabParent: 0
