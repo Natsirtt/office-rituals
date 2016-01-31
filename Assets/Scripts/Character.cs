@@ -113,6 +113,15 @@ public class Character : MonoBehaviour {
 	}
 #endregion
 
+	public void StartSmokeOverCharacter()
+	{
+		
+	}
+	public void StopSmokeOverCharacter()
+	{
+
+	}
+
     public bool CanMove()
     {
         return canMove;

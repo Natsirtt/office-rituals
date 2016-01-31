@@ -96,5 +96,12 @@ public class endSceneScript : MonoBehaviour {
 
 		// We can unload stuff here!
 		WorkMeterManager.GetInstance().AllWork.Clear();
+
+		for (int i = 0; i < CharactersManager.Instance.characters.Count; i++) {
+			Destroy( CharactersManager.Instance.characters[i].transform.parent.gameObject );
+		}
+		CharactersManager.Instance.characters.Clear ();
+	
+		Destroy(CharactersManager.Instance);
 	}
 }
