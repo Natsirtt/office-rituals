@@ -40,7 +40,7 @@ public class LocationWorkDesk : Location
 	public override void LocationAction(Character actingCharacter)
 	{
 		Debug.Log ("Add Work! ");
-	    if (OwnerCharacterId == -1)
+	    if (OwnerCharacterId == -1 || !actingCharacter.CanWork())
 	    {
 	        return;
 	    }
