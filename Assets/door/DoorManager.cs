@@ -7,6 +7,8 @@ public class DoorManager : MonoBehaviour {
 	private bool open;
 	private bool locked;
 
+	private int people = 0;
+
 	// Use this for initialization
 	void Start () {
 		open = false;
@@ -39,6 +41,7 @@ public class DoorManager : MonoBehaviour {
 
 	void OnTriggerEnter(Collider coll) 
 	{
+		people++;
 		if (!open && !locked) 
 		{
 			open = true;
@@ -48,7 +51,8 @@ public class DoorManager : MonoBehaviour {
 	
 	void OnTriggerExit(Collider coll) 
 	{
-		if (open) 
+		people--;
+		if (open && people <= 0) 
 		{
 			animController.SetTrigger ("closeDoor");
 			open = false;
