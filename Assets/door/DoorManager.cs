@@ -10,6 +10,16 @@ public class DoorManager : MonoBehaviour {
 	void Start () {
 		open = false;
 	}
+
+	void OnTriggerStay(Collider coll)
+	{
+		if (!open) 
+		{
+			open = true;
+			animController.SetTrigger ("openDoor");
+		}
+	}
+
 	void OnTriggerEnter(Collider coll) 
 	{
 		if (!open) 
