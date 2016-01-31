@@ -6016,6 +6016,9 @@ MonoBehaviour:
   - Conference room in 5!
   - Everyone gather around me!
   - Time to waste your time, NOW!
+  - I need to yell at you in the conf room
+  - Yet another meeting lazy cowards
+  - Stop working, conference room now
   linesAtMeeting:
   - Cash flow needs to increase
   - Look at me!
@@ -6023,11 +6026,27 @@ MonoBehaviour:
   - Excellence is important
   - We need to execute
   - I'm not happy with the stuff, regarding the things
+  - Our customers are expecting more
+  - This project is failing, big time
+  - Work harder you slugs
+  - I demand more unpaid overtime
+  - No xmas bonus this year
+  - Think outside the box on this one
+  - You excel at making crappy products
+  - Vacation is canceled
+  - Stop screwing around
+  - The client wants less buggy applications
+  - Why are we failing?
+  - 'Im cutting your salaries '
   linesTowardsOffice:
   - Back to work!
   - I'll be back soon!
   - Need to strategize now... SHOO!
   - Don't disturb me again!
+  - I'll be in my office, don't disturb me
+  - Back to work you lazy bastards
+  - Go fix the problems now
+  - Go and call some clients
   sounds:
   - {fileID: 8300000, guid: 727f8b202b8fcd24fa61f7f5366d0dc7, type: 3}
   - {fileID: 8300000, guid: ce488c8d21068364d95567cb460486ed, type: 3}
