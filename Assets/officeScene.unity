@@ -2209,8 +2209,8 @@ MonoBehaviour:
   bossTalk: {fileID: 2073778827}
   confLocation: {fileID: 1978827459}
   text: {fileID: 1868355336}
-  bossTriggerInterval: 120
-  bossTriggerIntervalRand: 90
+  bossTriggerInterval: 90
+  bossTriggerIntervalRand: 60
 --- !u!195 &638704073
 NavMeshAgent:
   m_ObjectHideFlags: 0
