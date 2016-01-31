@@ -7,6 +7,7 @@ public class Boss : MonoBehaviour {
 	public GameObject[] wayPointsRoute2;
 	public BossTalk bossTalk;
 	public ConferenceLocation confLocation;
+
 	private NavMeshAgent navAgent;
 	// Use this for initialization
 
@@ -39,7 +40,9 @@ public class Boss : MonoBehaviour {
 	{
 		nextBossTrigger = Time.time + bossTriggerInterval - bossTriggerIntervalRand + Random.Range (0, bossTriggerIntervalRand);
 
-		nextBossTrigger = Time.time + 4;
+		//confLocation.LockDoor (true);
+		//confLocation.LockDoor (false);
+		//nextBossTrigger = Time.time + 4;
 	}
 
 	void StartBossRound()
@@ -104,6 +107,7 @@ public class Boss : MonoBehaviour {
 	{
 		ShoutAtMeeting ();
 		yield return new WaitForSeconds(2);
+		confLocation.LockDoor (true);
 		ShoutAtMeeting ();
 		yield return new WaitForSeconds(2);
 		ShoutAtMeeting ();
@@ -111,7 +115,11 @@ public class Boss : MonoBehaviour {
 		text.text = "";
 		//navAgent.Resume ();
 
+
+
 		bool anyOneMissing = confLocation.CheckPlayersInConfRoom ();
+
+		confLocation.LockDoor (false);
 
 		if (anyOneMissing) 
 		{

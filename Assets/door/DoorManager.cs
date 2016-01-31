@@ -5,15 +5,32 @@ public class DoorManager : MonoBehaviour {
 
 	public Animator animController;
 	private bool open;
+	private bool locked;
 
 	// Use this for initialization
 	void Start () {
 		open = false;
+		locked = false;
+	}
+
+	public void LockDoor(bool val)
+	{
+		Debug.Log ("Lockdoor = "+val);
+		locked = val;
+
+		if (locked) 
+		{
+			if (open) {
+				open = false;
+				animController.SetTrigger ("closeDoor");
+			}
+		} 
+
 	}
 
 	void OnTriggerStay(Collider coll)
 	{
-		if (!open) 
+		if (!open && !locked) 
 		{
 			open = true;
 			animController.SetTrigger ("openDoor");
@@ -22,7 +39,7 @@ public class DoorManager : MonoBehaviour {
 
 	void OnTriggerEnter(Collider coll) 
 	{
-		if (!open) 
+		if (!open && !locked) 
 		{
 			open = true;
 			animController.SetTrigger ("openDoor");
