@@ -42,6 +42,7 @@ public class Boss : MonoBehaviour {
 	IEnumerator PointlessMeeting(float time)
 	{
 		yield return new WaitForSeconds(time);
+		navAgent.Resume ();
 		activeRoute = 2;
 		currentWayPointTarget = 0;
 		if (wayPointsRoute2.Length > 0) 
@@ -62,7 +63,9 @@ public class Boss : MonoBehaviour {
 				if (currentWayPointTarget >= wayPointsRoute1.Length) {
 					currentWayPointTarget = 0;
 					activeRoute = -1;
+					navAgent.Stop ();
 					Shout ();
+
 				} 
 				else 
 				{
@@ -79,6 +82,7 @@ public class Boss : MonoBehaviour {
 				if (currentWayPointTarget >= wayPointsRoute2.Length) {
 					currentWayPointTarget = 0;
 					activeRoute = -1;
+					navAgent.Stop ();
 				} 
 				else 
 				{
