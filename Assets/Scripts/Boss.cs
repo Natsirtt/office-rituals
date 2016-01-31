@@ -39,7 +39,7 @@ public class Boss : MonoBehaviour {
 	{
 		nextBossTrigger = Time.time + bossTriggerInterval - bossTriggerIntervalRand + Random.Range (0, bossTriggerIntervalRand);
 
-		//nextBossTrigger = Time.time + 4;
+		nextBossTrigger = Time.time + 4;
 	}
 
 	void StartBossRound()
@@ -108,12 +108,6 @@ public class Boss : MonoBehaviour {
 		yield return new WaitForSeconds(2);
 		ShoutAtMeeting ();
 		yield return new WaitForSeconds(2);
-		ShoutAtMeeting ();
-		yield return new WaitForSeconds(2);
-		ShoutAtMeeting ();
-		yield return new WaitForSeconds(2);
-		ShoutAtMeeting ();
-		yield return new WaitForSeconds(3);
 		text.text = "";
 		//navAgent.Resume ();
 

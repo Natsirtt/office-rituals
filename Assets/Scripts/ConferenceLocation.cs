@@ -39,7 +39,7 @@ public class ConferenceLocation : Location {
 		yield return new WaitForSeconds(1);
 		player.StartSmokeOverCharacter ();
 		player.setCanMove (false);
-		yield return new WaitForSeconds(5);
+		yield return new WaitForSeconds(10);
 		player.setCanMove (true);
 		player.StopSmokeOverCharacter ();
 	}
