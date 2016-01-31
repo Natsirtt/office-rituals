@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 
+using System.Collections.Generic;
+
 public class LocationWorkDesk : Location
 {
 
@@ -15,6 +17,8 @@ public class LocationWorkDesk : Location
 
     [SerializeField]
     private ParticleSystem sparks;
+
+	public ShakeObject[] ItemsToShakeWhenWorking;
 
 	// Use this for initialization
 	void Start ()
@@ -43,6 +47,10 @@ public class LocationWorkDesk : Location
 
 		//Do work
 
+		foreach(var o in this.ItemsToShakeWhenWorking) {
+			o.Shake();
+		}
+
         GetComponent<RandomSoundPlayer>().PlaySound();
 	    if (useSparksParticles && !sparks.isPlaying)
 	    {
@@ -51,7 +59,7 @@ public class LocationWorkDesk : Location
 
 		float workUpdate = /*0.25f*/CharactersManager.workValue;
 
-		// TODO: Bad Calculation!
+		// TODO: Bad Calculation! ((workValue * coffee) * smoke)
 
 		//Debug.Log ("Before: " + workUpdate);
 		actingCharacter.GetComponent<CoffeeMeter> ().CalcWork (ref workUpdate);

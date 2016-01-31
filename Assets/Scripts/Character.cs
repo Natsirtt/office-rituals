@@ -32,8 +32,18 @@ public class Character : MonoBehaviour {
 
 	// Use this for initialization
 	void Start() {
-		gameObject.AddComponent<CoffeeMeter> ();
-		gameObject.AddComponent<SmokeMeter> ();
+		var coffeeMeter = gameObject.AddComponent<CoffeeMeter> ();
+		var smokeMeter = gameObject.AddComponent<SmokeMeter> ();
+
+		if (Random.Range (0, 100) < 50) {
+			Debug.Log ("Player " + (id + 1) + " requires more nicotine!");
+			coffeeMeter.amountDepletedPerSecond = 1.5f;
+			smokeMeter.amountDepletedPerSecond = 3.0f;
+		} else {
+			Debug.Log ("Player " + (id + 1) + " requires more coffee!");
+			coffeeMeter.amountDepletedPerSecond = 3.0f;
+			smokeMeter.amountDepletedPerSecond = 1.5f;
+		}
 
 		CharColor = Color.red;
 
