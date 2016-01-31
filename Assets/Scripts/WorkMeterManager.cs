@@ -79,9 +79,11 @@ public class WorkMeterManager {
 	/// </summary>
 	public bool CheckWork() {
 		if (GetTotalWork() >= 100.0f) {
-			var winner = AllWork.Aggregate((l, r) => l.Value < r.Value ? l : r);
-			Debug.Log ("Winner: " + winner.Key.name);
-		
+			//var winner = AllWork.Aggregate((l, r) => l.Value < r.Value ? l : r);
+			//Debug.Log ("Winner: " + winner.Key.name);
+
+			Application.LoadLevel("endScene");
+
 			return true;
 		}
 

@@ -6,6 +6,17 @@ public class SmokeMeter : DepletingMeter {
 	}
 
 	public override void CalcWork(ref float value) {
-		value *= 1.2f;
+
+		if (this.Value == 0.0f) {
+			value *= 0.3f;
+		} 
+		else if (this.Value >= 100.0f) {
+			value *= 20.0f;
+		} else if (this.Value >= 80.0f) {
+			value *= 1.2f;
+		} else if (this.Value >= 20.0f) {
+			value *= 0.8f;
+		}
+
 	}
 }

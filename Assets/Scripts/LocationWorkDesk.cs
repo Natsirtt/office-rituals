@@ -39,18 +39,19 @@ public class LocationWorkDesk : Location
 
         GetComponent<RandomSoundPlayer>().PlaySound();
 
-		float workUpdate = 0.1f;
+		float workUpdate = 0.25f;
 
-		Debug.Log ("Before: " + workUpdate);
+		//Debug.Log ("Before: " + workUpdate);
 		actingCharacter.GetComponent<CoffeeMeter> ().CalcWork (ref workUpdate);
-		Debug.Log ("After: " + workUpdate);
+		actingCharacter.GetComponent<SmokeMeter> ().CalcWork (ref workUpdate);
+		//Debug.Log ("After: " + workUpdate);
 
 		if (OwnerCharacter == actingCharacter) {
 			Debug.Log ("working at my desk! ");
 			WorkMeterManager.GetInstance ().AddWork (OwnerCharacter, workUpdate);
 		} else {
 			//WorkMeterManager.GetInstance ().CanStealWork (actingCharacter, OwnerCharacter);
-			float workStolen = WorkMeterManager.GetInstance ().StealWork (actingCharacter, OwnerCharacter, workUpdate);
+			float workStolen = WorkMeterManager.GetInstance ().StealWork (actingCharacter, OwnerCharacter, workUpdate * 0.5f);
 			Debug.Log (string.Format("{0} stole {1} work from {2}", 
 				actingCharacter.name, workStolen, OwnerCharacter.name));
 		}

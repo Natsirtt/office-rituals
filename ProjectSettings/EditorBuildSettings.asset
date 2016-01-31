@@ -9,3 +9,5 @@ EditorBuildSettings:
     path: Assets/setupScene.unity
   - enabled: 1
     path: Assets/officeScene.unity
+  - enabled: 1
+    path: Assets/endScene.unity
