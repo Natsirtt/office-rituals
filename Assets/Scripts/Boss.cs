@@ -6,6 +6,7 @@ public class Boss : MonoBehaviour {
 	public GameObject[] wayPointsRoute1;
 	public GameObject[] wayPointsRoute2;
 	public BossTalk bossTalk;
+	public ConferenceLocation confLocation;
 	private NavMeshAgent navAgent;
 	// Use this for initialization
 
@@ -106,6 +107,9 @@ public class Boss : MonoBehaviour {
 		yield return new WaitForSeconds(3);
 		text.text = "";
 		//navAgent.Resume ();
+
+		confLocation.CheckPlayersInConfRoom ();
+
 		activeRoute = 2;
 		currentWayPointTarget = 0;
 		if (wayPointsRoute2.Length > 0) 
