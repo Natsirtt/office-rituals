@@ -5,7 +5,7 @@ public class Character : MonoBehaviour {
 	public Color CharColor;
 
 	public GameObject GUI;
-    public float GuiYOffset = 130f;
+    public static float GuiYOffset = 80f;
     [HideInInspector]
 	public int id;
 
@@ -89,7 +89,12 @@ public class Character : MonoBehaviour {
 		var guiComp = GUI.GetComponent<GUIContainer> ();
 
 		if (!guiInit) {
-			guiComp.GuiTransform.localPosition = new Vector3(10, -15 - id * GuiYOffset, 0);
+			if (id < 2) {
+				guiComp.GuiTransform.localPosition = new Vector3(10, -15 - id * GuiYOffset, 0);
+			} else {
+				guiComp.GuiTransform.localPosition = new Vector3(Screen.width - 210, -15 - (id - 2) * GuiYOffset, 0);
+			}
+
 			guiInit = true;
 		}
 

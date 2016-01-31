@@ -49,7 +49,7 @@ public class LocationWorkDesk : Location
 	        sparks.Play();
 	    }
 
-		float workUpdate = 0.25f;
+		float workUpdate = /*0.25f*/CharactersManager.workValue;
 
 		// TODO: Bad Calculation!
 

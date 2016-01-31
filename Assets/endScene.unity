@@ -1215,7 +1215,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Press Space Or 'A' on the GamePad
+  m_Text: Press Escape Or 'A' on the GamePad
 --- !u!222 &1318029243
 CanvasRenderer:
   m_ObjectHideFlags: 0

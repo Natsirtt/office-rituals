@@ -44,9 +44,19 @@ public class CharactersManager : MonoBehaviour
 
     public void EnableAllCharacters()
     {
+		switch (characters.Count) {
+		case 1: workValue = 1.00f; break;
+		case 2: workValue = 0.50f; break;
+		case 3: workValue = 0.40f; break;
+		case 4: workValue = 0.20f; break;
+		default: workValue = 0.1f; break; // should never called
+		}
+
         foreach (var character in characters)
         {
             character.gameObject.SetActive(true);
         }
     }
+
+	public static float workValue = 0.1f;
 }
