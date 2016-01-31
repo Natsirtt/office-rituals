@@ -19,6 +19,9 @@ public class LocationSmokeArea : Location {
 
 	IEnumerator Smoke(float time, Character actingCharacter)
 	{
+		var smokeMeter = actingCharacter.GetComponent<SmokeMeter> ();
+		smokeMeter.DepEnabled  = false;
+
 		actingCharacter.StartSmoke ();
 		actingCharacter.setCanMove (false);
 
@@ -27,6 +30,7 @@ public class LocationSmokeArea : Location {
 		actingCharacter.setCanMove (true);
 
 		actingCharacter.EndSmoke (75f);
+		smokeMeter.DepEnabled  = true;
 	}
 
 	// Update is called once per frame
