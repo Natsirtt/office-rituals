@@ -195,7 +195,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 131834}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.7316751, y: 1.501, z: -5.24226}
+  m_LocalPosition: {x: -2.0694504, y: 0.00000011920929, z: 0.64369273}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 466242}
@@ -554,6 +554,7 @@ MonoBehaviour:
   coffeeEarnedFromCup: 75
   coffeCup: {fileID: 178390}
   cig: {fileID: 118150}
+  cloudOverHead: {fileID: 191138}
   characterModel: {fileID: 476052}
 --- !u!114 &11477262
 MonoBehaviour:

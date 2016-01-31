@@ -22,6 +22,7 @@ public class Character : MonoBehaviour {
 
 	public GameObject coffeCup;
 	public GameObject cig;
+	public GameObject cloudOverHead;
 
 	private bool hasCoffeCup;
 
@@ -46,9 +47,14 @@ public class Character : MonoBehaviour {
 		if (cig != null) {
 			cig.SetActive (false);
 		}
+		if (cloudOverHead != null) 
+		{
+			cloudOverHead.SetActive (false);
+		}
 
 		canMove = true;
 		hasCoffeCup = false;
+
 	}
 
 	public bool DrinkingCoffe()
@@ -115,11 +121,17 @@ public class Character : MonoBehaviour {
 
 	public void StartSmokeOverCharacter()
 	{
-		
+		if (cloudOverHead != null) 
+		{
+			cloudOverHead.SetActive (true);
+		}
 	}
 	public void StopSmokeOverCharacter()
 	{
-
+		if (cloudOverHead != null) 
+		{
+			cloudOverHead.SetActive (false);
+		}
 	}
 
     public bool CanMove()
