@@ -79,7 +79,7 @@ public class endSceneScript : MonoBehaviour {
 		{
 			if (i == 0)
 			{
-				if (Input.GetKeyDown(KeyCode.Space))
+				if (Input.GetKeyDown(KeyCode.Escape))
 				{
 					LoadNextScene ();
 				}

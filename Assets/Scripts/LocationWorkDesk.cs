@@ -39,7 +39,7 @@ public class LocationWorkDesk : Location
 
         GetComponent<RandomSoundPlayer>().PlaySound();
 
-		float workUpdate = 0.25f;
+		float workUpdate = /*0.25f*/CharactersManager.workValue;
 
 		// TODO: Bad Calculation!
 
