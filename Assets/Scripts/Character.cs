@@ -143,10 +143,16 @@ public class Character : MonoBehaviour {
     {
         return canMove;
     }
+
 	public void setCanMove(bool val)
 	{
 		canMove = val;
 	}
+
+    public bool CanWork()
+    {
+        return !cloudOverHead.activeSelf;
+    }
 
     public void Move(Vector2 v)
     {
