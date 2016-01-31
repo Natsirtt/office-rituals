@@ -39,14 +39,12 @@ public class Boss : MonoBehaviour {
 	{
 		nextBossTrigger = Time.time + bossTriggerInterval - bossTriggerIntervalRand + Random.Range (0, bossTriggerIntervalRand);
 
-		nextBossTrigger = Time.time + 4;
+		//nextBossTrigger = Time.time + 4;
 	}
 
 	void StartBossRound()
 	{
-		confLocation.CheckPlayersInConfRoom ();
 		bossActive = true;
-
 		TriggerFirstRoute ();
 	}
 	void EndBossRound()
@@ -124,8 +122,8 @@ public class Boss : MonoBehaviour {
 		if (anyOneMissing) 
 		{
 			StartCoroutine (ShoutAtMissingPersons ());
-		} 
-		else 
+		}
+		else
 		{
 			TriggerSecondRoute ();
 		}
@@ -134,9 +132,18 @@ public class Boss : MonoBehaviour {
 
 	IEnumerator ShoutAtMissingPersons()
 	{
-		//navAgent.SetDestination (wayPointsRoute2 [currentWayPointTarget].transform.position);
+		navAgent.SetDestination (wayPointsRoute1 [0].transform.position);
+		yield return new WaitForSeconds(2);
 
-		yield return new WaitForSeconds(3);
+		audioS.clip = bossTalk.getNextSound ();
+		audioS.Play ();
+		text.text = "You lazy bastards!!";
+		yield return new WaitForSeconds(2);
+		audioS.clip = bossTalk.getNextSound ();
+		audioS.Play ();
+		text.text = "You have to listen to my important information!";
+		yield return new WaitForSeconds(2);
+
 		TriggerSecondRoute ();
 	}
 
