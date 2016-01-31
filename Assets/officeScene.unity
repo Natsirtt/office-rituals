@@ -1368,8 +1368,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 356134516}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.12, y: 0, z: 0.15}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -6.54, y: 0, z: 0.15}
+  m_LocalScale: {x: 2.0650008, y: 1, z: 1.2154515}
   m_Children: []
   m_Father: {fileID: 118073543}
   m_RootOrder: 0
@@ -2035,6 +2035,7 @@ GameObject:
   - 195: {fileID: 638704073}
   - 114: {fileID: 638704072}
   - 136: {fileID: 638704075}
+  - 82: {fileID: 638704076}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -2077,6 +2078,10 @@ MonoBehaviour:
   - {fileID: 1834286941}
   - {fileID: 160116482}
   - {fileID: 1409428761}
+  bossTalk: {fileID: 2073778827}
+  text: {fileID: 1868355336}
+  bossTriggerInterval: 120
+  bossTriggerIntervalRand: 90
 --- !u!195 &638704073
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2125,6 +2130,80 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!82 &638704076
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 638704070}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!1 &698755474
 GameObject:
   m_ObjectHideFlags: 0
@@ -2189,7 +2268,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 7c9de1d1fe9d34aa889d8292c71240c2, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7c9de1d1fe9d34aa889d8292c71240c2, type: 3}
@@ -3675,8 +3754,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1355425606}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071067}
-  m_LocalPosition: {x: -9.25, y: 0, z: 1.51}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -9.25, y: -2.362, z: 1.51}
+  m_LocalScale: {x: 2.3395104, y: 3.3619583, z: 2.5375056}
   m_Children: []
   m_Father: {fileID: 118073543}
   m_RootOrder: 4
@@ -3905,6 +3984,10 @@ MonoBehaviour:
   - {fileID: 1834286941}
   - {fileID: 160116482}
   - {fileID: 1409428761}
+  bossTalk: {fileID: 0}
+  text: {fileID: 0}
+  bossTriggerInterval: 120
+  bossTriggerIntervalRand: 90
 --- !u!1 &1574154348
 GameObject:
   m_ObjectHideFlags: 0
@@ -4418,8 +4501,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1763380259}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4, y: 0, z: 4.97}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -4, y: -4.42, z: 5.13}
+  m_LocalScale: {x: 1, y: 5.4199715, z: 1.3687013}
   m_Children: []
   m_Father: {fileID: 118073543}
   m_RootOrder: 2
@@ -4579,6 +4662,82 @@ Transform:
   - {fileID: 1409428762}
   m_Father: {fileID: 0}
   m_RootOrder: 15
+--- !u!1 &1868355334
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1868355335}
+  - 23: {fileID: 1868355337}
+  - 102: {fileID: 1868355336}
+  m_Layer: 0
+  m_Name: BossText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1868355335
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1868355334}
+  m_LocalRotation: {x: 0.46174866, y: 0, z: 0, w: 0.8870108}
+  m_LocalPosition: {x: -6.96, y: 1.53, z: -3.37}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 19
+--- !u!102 &1868355336
+TextMesh:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1868355334}
+  m_Text: Hello Minions
+  m_OffsetZ: 0
+  m_CharacterSize: 1
+  m_LineSpacing: 1
+  m_Anchor: 0
+  m_Alignment: 0
+  m_TabSize: 4
+  m_FontSize: 32
+  m_FontStyle: 1
+  m_RichText: 1
+  m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Color:
+    serializedVersion: 2
+    rgba: 4283848391
+--- !u!23 &1868355337
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1868355334}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_Materials:
+  - {fileID: 10100, guid: 0000000000000000e000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 1
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
 --- !u!1 &1905079937
 GameObject:
   m_ObjectHideFlags: 0
@@ -5124,6 +5283,59 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d295d1265427d485588ff0bb3aaf4f07, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &2073778826
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2073778828}
+  - 114: {fileID: 2073778827}
+  m_Layer: 0
+  m_Name: BossTalk
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2073778827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2073778826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74200b3e88e1e41c7945d274aa411ac4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lines:
+  - Listen up every one!
+  - This is real important!
+  - Conference room in 5 seconds!
+  - Look at me!
+  - Time for pointless meeting!
+  - I'm the boss!
+  - If you could just...
+  - Time to waste your time!
+  sounds:
+  - {fileID: 8300000, guid: 4d88e6262a1ea194784abbd4c6b9aef8, type: 3}
+  - {fileID: 8300000, guid: 315bd56c01461884a8b4a56e8d337a52, type: 3}
+  - {fileID: 8300000, guid: 4a89fb22a48d8954f8c976afdfc4a1e9, type: 3}
+  - {fileID: 8300000, guid: ac102acb377e5fc41ad3a14b87d5fefe, type: 3}
+--- !u!4 &2073778828
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2073778826}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.37782136, y: -12.358262, z: 7.070731}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 18
 --- !u!1 &2085542510
 GameObject:
   m_ObjectHideFlags: 0
@@ -5250,8 +5462,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2145323088}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.34, y: 0, z: -4.04}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -6.34, y: -2.362, z: -4.99}
+  m_LocalScale: {x: 1, y: 3.3619583, z: 1.8765566}
   m_Children: []
   m_Father: {fileID: 118073543}
   m_RootOrder: 3

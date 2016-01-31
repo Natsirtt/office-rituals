@@ -5,24 +5,54 @@ public class Boss : MonoBehaviour {
 
 	public GameObject[] wayPointsRoute1;
 	public GameObject[] wayPointsRoute2;
+	public BossTalk bossTalk;
 	private NavMeshAgent navAgent;
 	// Use this for initialization
 
 	private int activeRoute;
 	private int currentWayPointTarget;
 	private float wayPointSwitchDistance = 0.3f;
+	private AudioSource audioS;
+	public TextMesh text;
+	private Vector3 textOffset;
+	private float timeSinceLastWalk;
+	public float bossTriggerInterval = 120;
+	public float bossTriggerIntervalRand = 90;
+	private float nextBossTrigger;
+	private bool bossActive;
 
 	void Start () {
 		navAgent = GetComponent<NavMeshAgent> ();
 		activeRoute = -1;
-		TriggerFirstRoute ();
+		audioS = GetComponent<AudioSource> (); 
+		text.text = "";
+		textOffset = text.transform.position - transform.position;
+		timeSinceLastWalk = Time.time;
+		bossActive = false;
+
+		setNextBossTrigger ();
 	}
 
+	private void setNextBossTrigger()
+	{
+		nextBossTrigger = Time.time + bossTriggerInterval - bossTriggerIntervalRand + Random.Range (0, bossTriggerIntervalRand);
+
+		//nextBossTrigger = Time.time + 4;
+	}
 
 	void StartBossRound()
 	{
+		bossActive = true;
+
 		TriggerFirstRoute ();
 	}
+	void EndBossRound()
+	{
+		text.text = "";
+		bossActive = false;
+		setNextBossTrigger ();
+	}
+
 
 	void TriggerFirstRoute()
 	{
@@ -36,13 +66,29 @@ public class Boss : MonoBehaviour {
 
 	void Shout()
 	{
-		StartCoroutine (PointlessMeeting (3));
+		audioS.clip = bossTalk.getNextSound ();
+		audioS.Play ();
+		text.text = bossTalk.getNextLine ();
 	}
 
-	IEnumerator PointlessMeeting(float time)
+	void EndOfRoute1()
 	{
-		yield return new WaitForSeconds(time);
-		navAgent.Resume ();
+		StartCoroutine (PointlessMeeting ());
+		text.text = "";
+	}
+
+	IEnumerator PointlessMeeting()
+	{
+		Shout ();
+		yield return new WaitForSeconds(2);
+		Shout ();
+		yield return new WaitForSeconds(2);
+		Shout ();
+		yield return new WaitForSeconds(2);
+		Shout ();
+		yield return new WaitForSeconds(3);
+		text.text = "";
+		//navAgent.Resume ();
 		activeRoute = 2;
 		currentWayPointTarget = 0;
 		if (wayPointsRoute2.Length > 0) 
@@ -53,18 +99,27 @@ public class Boss : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+
+		if (Time.time > nextBossTrigger && !bossActive) 
+		{
+			StartBossRound ();
+		}
+
+		text.transform.position = transform.position + textOffset;
+
 		if (activeRoute == 1) 
 		{
 			Debug.Log ("dist="+navAgent.remainingDistance);
 			if (navAgent.remainingDistance < wayPointSwitchDistance && wayPointsRoute1.Length>1) 
 			{
+				Shout ();
 				Debug.Log ("reached waypoint number "+currentWayPointTarget);
 				currentWayPointTarget ++;
 				if (currentWayPointTarget >= wayPointsRoute1.Length) {
 					currentWayPointTarget = 0;
 					activeRoute = -1;
-					navAgent.Stop ();
-					Shout ();
+					//navAgent.Stop ();
+					EndOfRoute1 ();
 
 				} 
 				else 
@@ -78,11 +133,14 @@ public class Boss : MonoBehaviour {
 		{
 			if (navAgent.remainingDistance < wayPointSwitchDistance && wayPointsRoute2.Length>1) 
 			{
+				Shout ();
 				currentWayPointTarget ++;
 				if (currentWayPointTarget >= wayPointsRoute2.Length) {
 					currentWayPointTarget = 0;
 					activeRoute = -1;
-					navAgent.Stop ();
+					//navAgent.Stop ();
+					text.text = "";
+					EndBossRound ();
 				} 
 				else 
 				{
