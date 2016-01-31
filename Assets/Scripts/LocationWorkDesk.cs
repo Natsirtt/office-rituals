@@ -37,7 +37,9 @@ public class LocationWorkDesk : Location
 
 		//Do work
 
-		float workUpdate = 10.25f;
+        GetComponent<RandomSoundPlayer>().PlaySound();
+
+		float workUpdate = 0.25f;
 
 		//Debug.Log ("Before: " + workUpdate);
 		actingCharacter.GetComponent<CoffeeMeter> ().CalcWork (ref workUpdate);
