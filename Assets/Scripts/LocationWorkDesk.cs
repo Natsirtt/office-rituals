@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 
+using System.Collections.Generic;
+
 public class LocationWorkDesk : Location
 {
 
@@ -15,6 +17,8 @@ public class LocationWorkDesk : Location
 
     [SerializeField]
     private ParticleSystem sparks;
+
+	public ShakeObject[] ItemsToShakeWhenWorking;
 
 	// Use this for initialization
 	void Start ()
@@ -42,6 +46,10 @@ public class LocationWorkDesk : Location
 	    }
 
 		//Do work
+
+		foreach(var o in this.ItemsToShakeWhenWorking) {
+			o.Shake();
+		}
 
         GetComponent<RandomSoundPlayer>().PlaySound();
 	    if (useSparksParticles && !sparks.isPlaying)
