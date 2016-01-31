@@ -45,22 +45,12 @@ public class LocationWorkDesk : Location
 	        return;
 	    }
 
-		//Do work
-
-		foreach(var o in this.ItemsToShakeWhenWorking) {
-			o.Shake();
-		}
-
-        GetComponent<RandomSoundPlayer>().PlaySound();
-	    if (useSparksParticles && !sparks.isPlaying)
-	    {
-	        sparks.Play();
-	    }
+		// Do work
 
 		float workUpdate = /*0.25f*/CharactersManager.workValue;
+		bool doEffect = true;
 
 		// TODO: Bad Calculation! ((workValue * coffee) * smoke)
-
 		//Debug.Log ("Before: " + workUpdate);
 		actingCharacter.GetComponent<CoffeeMeter> ().CalcWork (ref workUpdate);
 		actingCharacter.GetComponent<SmokeMeter> ().CalcWork (ref workUpdate);
@@ -72,8 +62,24 @@ public class LocationWorkDesk : Location
 		} else {
 			//WorkMeterManager.GetInstance ().CanStealWork (actingCharacter, OwnerCharacter);
 			float workStolen = WorkMeterManager.GetInstance ().StealWork (actingCharacter, OwnerCharacter, workUpdate * 0.5f);
+			if (workStolen == 0.0f) {
+				doEffect = false;
+			}
+
 			Debug.Log (string.Format("{0} stole {1} work from {2}", 
 				actingCharacter.name, workStolen, OwnerCharacter.name));
+		}
+
+		if (doEffect) {
+			foreach(var o in this.ItemsToShakeWhenWorking) {
+				o.Shake();
+			}
+			
+			GetComponent<RandomSoundPlayer>().PlaySound();
+			if (useSparksParticles && !sparks.isPlaying)
+			{
+				sparks.Play();
+			}
 		}
 	}
 }
