@@ -51,7 +51,7 @@ public class LocationWorkDesk : Location
 
 		float workUpdate = /*0.25f*/CharactersManager.workValue;
 
-		// TODO: Bad Calculation!
+		// TODO: Bad Calculation! ((workValue * coffee) * smoke)
 
 		//Debug.Log ("Before: " + workUpdate);
 		actingCharacter.GetComponent<CoffeeMeter> ().CalcWork (ref workUpdate);
