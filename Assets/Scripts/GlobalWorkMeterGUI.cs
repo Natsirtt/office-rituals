@@ -8,7 +8,7 @@ public class GlobalWorkMeterGUI : MonoBehaviour {
 	void OnGUI() {
 		const float height = 10.0f;
 
-		GUIDrawRect (new Rect (0, 0, Screen.width, height), Color.white);
+		GUIDrawRect (new Rect (0, 0, Screen.width, height), Color.gray);
 
 		float x = 0;
 

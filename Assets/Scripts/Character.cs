@@ -67,9 +67,9 @@ public class Character : MonoBehaviour {
 		switch (index) {
 		case 0: return Color.red;
 		case 1: return Color.green;
-		case 2: return Color.blue;
+		case 2: return new Color(75, 206, 250); // light blue
 		case 3: return Color.yellow;
-		default: return Color.white;
+		default: return Color.white; // should never be used
 		}
 	}
 	private bool guiInit = false;
