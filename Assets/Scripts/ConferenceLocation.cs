@@ -3,6 +3,9 @@ using System.Collections;
 
 public class ConferenceLocation : Location {
 
+	public DoorManager confDoor;
+
+
 	// Use this for initialization
 	void Start () {
 	
@@ -11,6 +14,18 @@ public class ConferenceLocation : Location {
 	public override void LocationAction(Character actingCharacter)
 	{
 		
+	}
+
+	public void LockDoor(bool val)
+	{
+		//Debug.Log ("Confroom lock "+val);
+		Debug.Log (confDoor);
+
+		if (confDoor != null)
+		{
+			//Debug.Log ("Confroom lock not null");
+			confDoor.LockDoor (val);
+		}
 	}
 
 	public bool CheckPlayersInConfRoom()
