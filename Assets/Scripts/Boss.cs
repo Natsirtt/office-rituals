@@ -105,16 +105,14 @@ public class Boss : MonoBehaviour {
 
 	IEnumerator PointlessMeeting()
 	{
-		ShoutAtMeeting ();
 		yield return new WaitForSeconds(2);
+		ShoutAtMeeting ();
 		confLocation.LockDoor (true);
-		ShoutAtMeeting ();
 		yield return new WaitForSeconds(2);
 		ShoutAtMeeting ();
 		yield return new WaitForSeconds(2);
-		text.text = "";
+		ShoutAtMeeting ();
 		//navAgent.Resume ();
-
 
 
 		bool anyOneMissing = confLocation.CheckPlayersInConfRoom ();
