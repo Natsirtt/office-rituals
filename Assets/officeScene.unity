@@ -5882,27 +5882,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   linesTowardsMeeting:
-  - Listen up!
+  - We need to refocus, EVERYONE COMES!
   - Time for pointless meeting!
   - Conference room in 5!
   - Everyone gather around me!
-  - Time to waste your time!
+  - Time to waste your time, NOW!
   linesAtMeeting:
-  - Cash flow need to increase
-  - Look at me
-  - We need to do this and this
+  - Cash flow needs to increase
+  - Look at me!
+  - We need to do this and that
   - Excellence is important
   - We need to execute
+  - I'm not happy with the stuff, regarding the things
   linesTowardsOffice:
   - Back to work!
-  - I will be back soon!
-  - Need to strategize now
-  - Dont disturb me
+  - I'll be back soon!
+  - Need to strategize now... SHOO!
+  - Don't disturb me again!
   sounds:
-  - {fileID: 8300000, guid: 4d88e6262a1ea194784abbd4c6b9aef8, type: 3}
-  - {fileID: 8300000, guid: 315bd56c01461884a8b4a56e8d337a52, type: 3}
-  - {fileID: 8300000, guid: 4a89fb22a48d8954f8c976afdfc4a1e9, type: 3}
-  - {fileID: 8300000, guid: ac102acb377e5fc41ad3a14b87d5fefe, type: 3}
+  - {fileID: 8300000, guid: 727f8b202b8fcd24fa61f7f5366d0dc7, type: 3}
+  - {fileID: 8300000, guid: ce488c8d21068364d95567cb460486ed, type: 3}
+  - {fileID: 8300000, guid: 2e00cf8a583fac34181c1a53834e7e33, type: 3}
 --- !u!4 &2073778828
 Transform:
   m_ObjectHideFlags: 0
