@@ -3146,7 +3146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dd69b33e1acf4b288adf2b235685ca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coffeTime: 7
+  coffeTime: 3
   dripSound: {fileID: 8300000, guid: e0ed356c8fa7144daad5079e9ee8b1e7, type: 3}
   readySound: {fileID: 8300000, guid: 7a87aa526dcc1de49b2d9866cb3dd78c, type: 3}
   drinkSound: {fileID: 8300000, guid: d9786990e89fc91428aa09b096501cf4, type: 3}
