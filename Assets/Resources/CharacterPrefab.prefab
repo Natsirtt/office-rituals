@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 491210}
   - 198: {fileID: 19827414}
   - 199: {fileID: 19968650}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25,7 +25,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 471182}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Character
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   - 4: {fileID: 466242}
   - 33: {fileID: 3301214}
   - 23: {fileID: 2332180}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60,7 +60,7 @@ GameObject:
   - 33: {fileID: 3312270}
   - 23: {fileID: 2381740}
   - 114: {fileID: 11413776}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CharacterModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -76,7 +76,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 476052}
   - 114: {fileID: 11477262}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CharacterGroup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - 33: {fileID: 3348316}
   - 136: {fileID: 13637024}
   - 23: {fileID: 2383954}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,7 +111,7 @@ GameObject:
   - 4: {fileID: 424200}
   - 198: {fileID: 19880010}
   - 199: {fileID: 19919932}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,7 +129,7 @@ GameObject:
   - 114: {fileID: 11426896}
   - 54: {fileID: 5408156}
   - 65: {fileID: 6520518}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CharacterPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,7 +146,7 @@ GameObject:
   - 4: {fileID: 475746}
   - 33: {fileID: 3342002}
   - 23: {fileID: 2343858}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -164,7 +164,7 @@ GameObject:
   - 33: {fileID: 3300300}
   - 136: {fileID: 13672738}
   - 23: {fileID: 2381354}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CoffeeCup
   m_TagString: CoffeeCup
   m_Icon: {fileID: 0}
@@ -181,7 +181,7 @@ GameObject:
   - 4: {fileID: 452018}
   - 198: {fileID: 19840990}
   - 199: {fileID: 19951084}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ShoutAtParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -547,7 +547,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CharColor: {r: 0, g: 0, b: 0, a: 0}
   GUI: {fileID: 0}
-  GuiYOffset: 130
   id: 0
   moveSpeed: 5
   coffeeDrinkTime: 5
@@ -5200,7 +5199,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 131834}

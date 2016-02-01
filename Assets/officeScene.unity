@@ -2163,7 +2163,7 @@ GameObject:
   - 114: {fileID: 638704072}
   - 136: {fileID: 638704075}
   - 82: {fileID: 638704076}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Boss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2398,6 +2398,26 @@ Prefab:
     - target: {fileID: 400000, guid: 7c9de1d1fe9d34aa889d8292c71240c2, type: 3}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100008, guid: 7c9de1d1fe9d34aa889d8292c71240c2, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: 7c9de1d1fe9d34aa889d8292c71240c2, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 7c9de1d1fe9d34aa889d8292c71240c2, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 7c9de1d1fe9d34aa889d8292c71240c2, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7c9de1d1fe9d34aa889d8292c71240c2, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7c9de1d1fe9d34aa889d8292c71240c2, type: 3}
@@ -2713,7 +2733,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
 --- !u!1001 &816205243
 Prefab:
   m_ObjectHideFlags: 0
