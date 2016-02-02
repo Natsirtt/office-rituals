@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/setupScene.unity
+    path: Assets/Scenes/setupScene.unity
   - enabled: 1
-    path: Assets/officeScene.unity
+    path: Assets/Scenes/officeScene.unity
   - enabled: 1
-    path: Assets/endScene.unity
+    path: Assets/Scenes/endScene.unity

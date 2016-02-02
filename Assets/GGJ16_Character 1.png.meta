@@ -1,0 +1,179 @@
+fileFormatVersion: 2
+guid: 727830bf225cdc1458f294e3677d37cd
+timeCreated: 1454416122
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: State 1
+    21300002: State 2
+    21300004: State 3
+    21300006: State 4
+    21300008: State 5
+    21300010: State 6
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 0
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 32
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: State 1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 3, y: 31}
+        - {x: -2, y: 31}
+        - {x: -5, y: 26}
+        - {x: -5, y: 4}
+        - {x: -3, y: 3}
+        - {x: 7, y: 3}
+        - {x: 7, y: 22}
+        - {x: 6, y: 30}
+    - name: State 2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -8, y: 20}
+        - {x: -8, y: 8}
+        - {x: -2, y: 2}
+        - {x: 4, y: 2}
+        - {x: 6, y: 3}
+        - {x: 6, y: 30}
+        - {x: 5, y: 31}
+        - {x: 0, y: 31}
+        - {x: -5, y: 30}
+    - name: State 3
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: 17}
+        - {x: -7, y: 9}
+        - {x: 0, y: 2}
+        - {x: 2, y: 2}
+        - {x: 4, y: 3}
+        - {x: 5, y: 29}
+        - {x: 4, y: 31}
+        - {x: 0, y: 31}
+        - {x: -5, y: 30}
+    - name: State 4
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 3, y: 31}
+        - {x: -3, y: 31}
+        - {x: -5, y: 27}
+        - {x: -5, y: 6}
+        - {x: -2, y: 2}
+        - {x: 2, y: 2}
+        - {x: 4, y: 3}
+        - {x: 8, y: 9}
+        - {x: 8, y: 18}
+        - {x: 5, y: 29}
+    - name: State 5
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -2, y: 31}
+        - {x: -3, y: 28}
+        - {x: -3, y: 3}
+        - {x: -2, y: 2}
+        - {x: 5, y: 2}
+        - {x: 7, y: 6}
+        - {x: 7, y: 22}
+        - {x: 5, y: 31}
+    - name: State 6
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 3, y: 31}
+        - {x: -3, y: 31}
+        - {x: -3, y: 2}
+        - {x: 4, y: 2}
+        - {x: 6, y: 4}
+        - {x: 6, y: 30}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
